@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="IntegradorProgramacionII.Classes.Apuesta">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Classes\Apuesta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="numero" />
+      <Field Name="modalidad" />
+      <Field Name="fichas" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Casillero">
+    <Position X="9.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABACAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Casillero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Croupier">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Croupier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Fichas">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Fichas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Modalidad">
+    <Position X="1.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Modalidad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Player">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAQAAAQA=</HashCode>
+      <FileName>Classes\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="fichas" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IntegradorProgramacionII.Classes.Ruleta">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Ruleta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
