@@ -11,7 +11,7 @@ namespace IntegradorProgramacionII.Classes
         string user;
         string pass;
         string nombre;
-        Fichas[] fichas;
+        Ficha[] fichas;
 
         public Player()
         { 

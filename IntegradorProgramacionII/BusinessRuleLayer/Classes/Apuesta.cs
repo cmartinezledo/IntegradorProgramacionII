@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace IntegradorProgramacionII.Classes
 {
-    class Apuesta
+    private class Apuesta
     {
-        Casillero[] numero;
-        Fichas[] fichas;
-        Modalidad modalidad;
+        private Casillero[] numero;
+        private Ficha[] fichas;
+        private Modalidad modalidad;
     }
 }

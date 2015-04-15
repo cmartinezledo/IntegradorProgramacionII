@@ -39,7 +39,7 @@
     <Compile Include="Classes\Apuesta.cs" />
     <Compile Include="Classes\Casillero.cs" />
     <Compile Include="Classes\Croupier.cs" />
-    <Compile Include="Classes\Fichas.cs" />
+    <Compile Include="Classes\Ficha.cs" />
     <Compile Include="Classes\Modalidad.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Ruleta.cs" />

@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace IntegradorProgramacionII.Classes
 {
-    class Casillero
+    public class Casillero
     {
-        int valor;
-        char color;
+        private int valor;
+        private string color = "";
+        
+        public int Valor
+        {
+            get { return valor; }
+            set { valor = value; }
+        }
+        
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
     }
 }
