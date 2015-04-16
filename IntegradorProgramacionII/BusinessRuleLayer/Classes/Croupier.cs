@@ -8,5 +8,6 @@ namespace IntegradorProgramacionII.Classes
 {
     public class Croupier //Nuestro cerebro
     {
+       private Ruleta ruleta;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IntegradorProgramacionII.Classes
 {
-    class Ficha
+    public class Ficha
     {
         int valor;
         int cantidad;

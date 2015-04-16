@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace IntegradorProgramacionII.Classes
 {
-    private class Apuesta
+    public class Apuesta
     {
-        private Casillero[] numero;
-        private Ficha[] fichas;
+        private List<Casillero> numeros;
+        private List<Ficha> fichas;
         private Modalidad modalidad;
+
+        public Apuesta(List<Casillero> numeros, List<Ficha> fichas, 
+            Modalidad modalidad)
+        {
+            this.numeros = numeros;
+            this.fichas = fichas;
+            this.modalidad = modalidad;
+        }
+    
     }
 }

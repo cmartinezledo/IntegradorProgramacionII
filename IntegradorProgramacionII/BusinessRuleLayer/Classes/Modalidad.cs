@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IntegradorProgramacionII.Classes
 {
-    class Modalidad
+    public class Modalidad
     {
         String nombre;
         int multiplicador;
