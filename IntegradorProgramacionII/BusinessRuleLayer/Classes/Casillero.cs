@@ -9,7 +9,7 @@ namespace IntegradorProgramacionII.Classes
     public class Casillero
     {
         private int valor;
-        private string color = "";
+        private string color;
         
         public int Valor
         {

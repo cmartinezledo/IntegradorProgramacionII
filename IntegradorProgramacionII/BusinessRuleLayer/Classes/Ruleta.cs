@@ -13,9 +13,11 @@ namespace IntegradorProgramacionII.Classes
 
         public Ruleta()
         {
+            // TODO: ¿Necesitamos 48 casillas?.
             //Carga Inicial
             for (int i = 0; i < 37; i++)
             {
+                tablero[i] = new Casillero();
                 tablero[i].Valor = i;
             }
 

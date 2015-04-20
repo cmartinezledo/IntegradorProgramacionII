@@ -8,7 +8,19 @@ namespace IntegradorProgramacionII.Classes
 {
     public class Ficha
     {
-        int valor;
-        int cantidad;
+        private int valor;
+        private int cantidad;
+
+        public int Valor
+        {
+            get { return valor; }
+            set { valor = value; }
+        }
+
+        public int Cantidad
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
     }
 }

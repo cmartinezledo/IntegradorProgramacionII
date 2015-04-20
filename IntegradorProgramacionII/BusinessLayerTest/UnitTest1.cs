@@ -10,19 +10,33 @@ namespace BusinessLayerTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Pleno()
         {
             Ruleta ruleta = new Ruleta();
             
             List<Casillero> casilleros = new List<Casillero>();
             casilleros.Add(ruleta.tablero[3]);
-            //Ficha 
-
-
-            Apuesta a = new Apuesta(casilleros, null, null);
-            Assert.IsNotNull(a);
             
-            //ruleta.
+            //Ficha
+            List<Ficha> fichas = new List<Ficha>();
+            Ficha ficha = new Ficha();
+            fichas.Add(ficha);
+            
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Pleno");
+
+            Apuesta a = new Apuesta(casilleros, fichas, modalidad);
+            
+            //Testing
+            Assert.IsNotNull(a);
+            Assert.AreEqual(a.Modalidad.Nombre, "Pleno");
+            Assert.AreEqual(a.Numeros.Count, 1);
+            foreach (Casillero num in a.Numeros)
+	        {
+                Assert.AreEqual(num.Valor, 3);
+                Assert.AreEqual(num.Color, "Rojo");
+	        }
+            
 
             
         }
