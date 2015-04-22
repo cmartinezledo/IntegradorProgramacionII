@@ -49,7 +49,7 @@ namespace IntegradorProgramacionII.Classes
             set { nombre = value; }
         }
 
-        public int Multiplicador
+        public double Multiplicador
         {
             get { return multiplicador; }
             set { multiplicador = value; }
