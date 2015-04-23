@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="IntegradorProgramacionII.Classes.Apuesta">
-    <Position X="6" Y="0.5" Width="2.25" />
+    <Position X="10" Y="3.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAQAAAAEAAAAAAgAAAAIAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Classes\Apuesta.cs</FileName>
@@ -11,45 +11,35 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="IntegradorProgramacionII.Classes.Casillero">
-    <Position X="9.25" Y="0.5" Width="2.25" />
+    <Position X="10" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAABACAAAAAgAAAAAA=</HashCode>
       <FileName>Classes\Casillero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IntegradorProgramacionII.Classes.Croupier">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="1.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Croupier.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IntegradorProgramacionII.Classes.Ficha">
-    <Position X="9.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Ficha.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="IntegradorProgramacionII.Classes.Modalidad">
-    <Position X="1.75" Y="2.75" Width="2.25" />
+    <Position X="10" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAgAAAAIAAAAA=</HashCode>
       <FileName>Classes\Modalidad.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IntegradorProgramacionII.Classes.Player">
-    <Position X="6.25" Y="2.75" Width="1.5" />
+    <Position X="5.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>ABABAAAAAAQAAACEAAAAgAAAAAAAAAgAAAAIAAAQAQA=</HashCode>
       <FileName>Classes\Player.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="fichas" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="IntegradorProgramacionII.Classes.Ruleta">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Ruleta.cs</FileName>

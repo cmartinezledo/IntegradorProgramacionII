@@ -9,7 +9,7 @@ namespace IntegradorProgramacionII.Classes
     public class Ruleta
     {
         public Casillero[] tablero = new Casillero[48];
-        private List<Apuesta> apuestas = new List<Apuesta>();
+        public List<Apuesta> apuestas = new List<Apuesta>();
 
         public Ruleta()
         {
