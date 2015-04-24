@@ -102,7 +102,44 @@ namespace BusinessLayerTest
             Assert.AreEqual(700, total);
             
         }
-    
+
+        [TestMethod]
+        [TestCategory("Modalidad")]
+        public void MultiplicadorModalidad()
+        {
+            int apuesta = 3;
+
+            //Modalidad
+            Modalidad modalidad1 = new Modalidad("Pleno");
+            Modalidad modalidad2 = new Modalidad("Semi");
+            Modalidad modalidad3 = new Modalidad("Calle");
+            Modalidad modalidad4 = new Modalidad("Cubre");
+            Modalidad modalidad5 = new Modalidad("Cuadro");
+            Modalidad modalidad6 = new Modalidad("Linea");
+            Modalidad modalidad7 = new Modalidad("Columna");
+            Modalidad modalidad8 = new Modalidad("Docena");
+            Modalidad modalidad9 = new Modalidad("Chances Simples");
+            Modalidad modalidad10 = new Modalidad("Doble Columna");
+            Modalidad modalidad11 = new Modalidad("Doble Docena");
+
+            //Testing
+            Assert.AreEqual(35, modalidad1.Multiplicador);
+            Assert.AreEqual(17, modalidad2.Multiplicador);
+            Assert.AreEqual(11, modalidad3.Multiplicador);
+            Assert.AreEqual(11, modalidad4.Multiplicador);
+            Assert.AreEqual(8, modalidad5.Multiplicador);
+            Assert.AreEqual(5, modalidad6.Multiplicador);
+            Assert.AreEqual(2, modalidad7.Multiplicador);
+            Assert.AreEqual(2, modalidad8.Multiplicador);
+            Assert.AreEqual(1, modalidad9.Multiplicador);
+            Assert.AreEqual(1/2, modalidad10.Multiplicador);
+            Assert.AreEqual(1/2, modalidad11.Multiplicador);
+
+            Assert.AreEqual(33, apuesta*modalidad4.Multiplicador);
+            Assert.AreEqual(3, apuesta*modalidad9.Multiplicador);
+            Assert.AreEqual(2/3, apuesta*modalidad11.Multiplicador);
+
+        } 
     
     }
 }
