@@ -231,5 +231,39 @@ namespace BusinessLayerTest
 
             Assert.AreEqual(-700.0, pepe.Pagar());
         }
+
+        [TestMethod]
+        [TestCategory("Perdio-Semi | Gano-Pleno")]
+        public void PerdioSemiGanoPleno()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[2]);
+            casillerosA.Add(ruleta.tablero[3]);
+
+            List<Casillero> casillerosB = new List<Casillero>();
+            casillerosB.Add(ruleta.tablero[14]);
+
+            //Modalidad
+            Modalidad modalidadA = new Modalidad("Semi");
+            Modalidad modalidadB = new Modalidad("Pleno");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidadA, p);
+            Apuesta b = new Apuesta(casillerosB, 200, modalidadB, p);
+            ruleta.Apostar(a);
+            ruleta.Apostar(b);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 14;
+
+            // Paga 7000 por el pleno, mas la proia apuesta de 200 y le resta los 500 que aposto al semi! = 6700
+            Assert.AreEqual(6700, pepe.Pagar());
+        }
     }
 }
