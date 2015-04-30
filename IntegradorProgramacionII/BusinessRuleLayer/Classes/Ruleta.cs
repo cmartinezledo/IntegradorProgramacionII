@@ -8,14 +8,13 @@ namespace IntegradorProgramacionII.Classes
 {   
     public class Ruleta
     {
-        public Casillero[] tablero = new Casillero[48];
-        private List<Apuesta> apuestas = new List<Apuesta>();
+        public Casillero[] tablero = new Casillero[49];
+        public List<Apuesta> apuestas = new List<Apuesta>();
 
         public Ruleta()
         {
-            // TODO: ¿Necesitamos 48 casillas?.
             //Carga Inicial
-            for (int i = 0; i < 37; i++)
+            for (int i = 0; i < 49; i++)
             {
                 tablero[i] = new Casillero();
                 tablero[i].Valor = i;
@@ -57,6 +56,19 @@ namespace IntegradorProgramacionII.Classes
             tablero[34].Color = "Rojo";
             tablero[35].Color = "Negro";
             tablero[36].Color = "Rojo";
+
+            // 37 par
+            // 38 impar
+            // 39 rojo
+            // 40 negro
+            // 41 docena
+            // 42 2da
+            // 43 3era
+            // 44 1/18
+            // 45 19/36
+            // 46 fila 1
+            // 47 fila 2
+            // 48 fila 3
         }
 
         public void Apostar(Apuesta apuesta) 
