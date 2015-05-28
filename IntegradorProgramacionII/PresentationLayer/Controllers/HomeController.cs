@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using IntegradorProgramacionII.Classes;
 
 namespace PresentationLayer.Controllers
 {
@@ -12,6 +13,12 @@ namespace PresentationLayer.Controllers
         // GET: /Home/
 
         public ActionResult Index()
+        {
+            // este action es para comprar fichas
+            return View();
+        }
+
+        public ActionResult Jugar() 
         {
             return View();
         }
