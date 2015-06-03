@@ -48,7 +48,7 @@ namespace BusinessLayerTest
         {
             List<Casillero> casilleros = new List<Casillero>();
             casilleros.Add(ruleta.tablero[2]);
-
+            
             //Ficha
             //Dinero en fichas
 
