@@ -265,5 +265,283 @@ namespace BusinessLayerTest
             // Paga 7000 por el pleno, mas la proia apuesta de 200 y le resta los 500 que aposto al semi! = 6700
             Assert.AreEqual(6700, pepe.Pagar());
         }
+
+        [TestMethod]
+        [TestCategory("Gano-Par")]
+        public void GanoPar()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[37]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 2;
+
+            Assert.AreEqual(1000, pepe.Pagar());
+        }
+        [TestMethod]
+        [TestCategory("Perdio-Par")]
+        public void PerdioPar()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[37]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 3;
+
+            Assert.AreEqual(-500, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Gano-Impar")]
+        public void GanoImpar()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[38]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 3;
+
+            Assert.AreEqual(1000, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Perdio-Impar")]
+        public void PerdioImpar()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[38]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 2;
+
+            Assert.AreEqual(-500, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Gano-Rojo")]
+        public void GanoRojo()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[39]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 3;
+
+            Assert.AreEqual(1000, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Perdio-Rojo")]
+        public void PerdioRojo()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[39]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 2;
+
+            Assert.AreEqual(-500, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Gano-Negro")]
+        public void GanoNegro()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[40]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 2;
+
+            Assert.AreEqual(1000, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Perdio-Negro")]
+        public void PerdioNegro()
+        {
+
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[40]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Chances Simples");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            ruleta.Apostar(a);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 3;
+
+            Assert.AreEqual(-500, pepe.Pagar());
+        }
+
+        [TestMethod]
+        [TestCategory("Apuestas")]
+        public void ApuestaDocena()
+        {
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[41]);
+
+            List<Casillero> casillerosB = new List<Casillero>();
+            casillerosB.Add(ruleta.tablero[42]);
+            
+            List<Casillero> casillerosC = new List<Casillero>();
+            casillerosC.Add(ruleta.tablero[43]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Docena");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 2000, modalidad, p);
+            Apuesta b = new Apuesta(casillerosB, 500, modalidad, p);
+            Apuesta c = new Apuesta(casillerosC, 250, modalidad, p);
+
+            ruleta.Apostar(a);
+            ruleta.Apostar(b);
+            ruleta.Apostar(c);
+            
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 4;
+
+            Assert.AreEqual(5250, pepe.Pagar());
+        }
+        [TestMethod]
+        [TestCategory("Apuestas")]
+        public void ApuestaFilas()
+        {
+            //Casilleros
+            List<Casillero> casillerosA = new List<Casillero>();
+            casillerosA.Add(ruleta.tablero[46]);
+
+            List<Casillero> casillerosB = new List<Casillero>();
+            casillerosB.Add(ruleta.tablero[47]);
+
+            List<Casillero> casillerosC = new List<Casillero>();
+            casillerosC.Add(ruleta.tablero[48]);
+
+            //Modalidad
+            Modalidad modalidad = new Modalidad("Columna");
+
+            //Jugador
+            Player p = new Player();
+
+            //Apuesta
+            Apuesta a = new Apuesta(casillerosA, 500, modalidad, p);
+            Apuesta b = new Apuesta(casillerosB, 2000, modalidad, p);
+            Apuesta c = new Apuesta(casillerosC, 250, modalidad, p);
+
+            ruleta.Apostar(a);
+            ruleta.Apostar(b);
+            ruleta.Apostar(c);
+
+            //Asignar Croupier
+            pepe.Ruleta = ruleta;
+            pepe.Elegido = 5;
+
+            Assert.AreEqual(5250, pepe.Pagar());
+        }
     }
 }
