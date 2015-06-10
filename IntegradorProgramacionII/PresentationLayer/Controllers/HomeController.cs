@@ -23,5 +23,10 @@ namespace PresentationLayer.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
     }
 }

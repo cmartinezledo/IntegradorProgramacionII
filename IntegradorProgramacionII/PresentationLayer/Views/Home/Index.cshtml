@@ -1,25 +1,6 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<form action="/home/jugar" method="post">
-<h1>Juego de Ruleta</h1>
 
-<div class="form-group">
-    <input type="text" name="dinero" placeholder="Ingrese cuanto dinero desea comprar" />
-</div>
-<div class="form-group">
-    <input type="text" name="comprar" placeholder="Cuanto quiere comprar" />
-</div>
-<div class="form-group">
-    <label>Valor de la ficha: </label>
-    <select name="valor">
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-    </select>
-</div>
-    <br />
-    <button type="submit" class="btn btn-default">Comprar</button>
-</form>
-
+@Html.Partial("Menu");
+@Html.Partial("Jugar");
