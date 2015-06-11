@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GameModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GameModelStoreContainer">
+    <EntitySet Name="PlayerSet" EntityType="GameModel.Store.PlayerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PerfilSet" EntityType="GameModel.Store.PerfilSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PlayerPerfil" Association="GameModel.Store.PlayerPerfil">
+      <End Role="Player" EntitySet="PlayerSet" />
+      <End Role="Perfil" EntitySet="PerfilSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PlayerSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PerfilSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombrePerfil" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PlayerPerfil">
+    <End Role="Player" Type="GameModel.Store.PlayerSet" Multiplicity="1" />
+    <End Role="Perfil" Type="GameModel.Store.PerfilSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Perfil">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GameModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="GameModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PlayerSet" EntityType="GameModel.Player" />
+          <EntitySet Name="PerfilSet" EntityType="GameModel.Perfil" />
+          <AssociationSet Name="PlayerPerfil" Association="GameModel.PlayerPerfil">
+            <End Role="Player" EntitySet="PlayerSet" />
+            <End Role="Perfil" EntitySet="PerfilSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <NavigationProperty Name="Perfiles" Relationship="GameModel.PlayerPerfil" FromRole="Player" ToRole="Perfil" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombrePerfil" Nullable="false" />
+          <Property Type="Int32" Name="PlayerId" Nullable="false" />
+        </EntityType>
+        <Association Name="PlayerPerfil">
+          <End Type="GameModel.Player" Role="Player" Multiplicity="1" />
+          <End Type="GameModel.Perfil" Role="Perfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Perfil">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GameModelStoreContainer" CdmEntityContainer="GameModelContainer">
+    <EntitySetMapping Name="PlayerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GameModel.Player)">
+        <MappingFragment StoreEntitySet="PlayerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilSet">
+      <EntityTypeMapping TypeName="IsTypeOf(GameModel.Perfil)">
+        <MappingFragment StoreEntitySet="PerfilSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombrePerfil" ColumnName="NombrePerfil" />
+          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

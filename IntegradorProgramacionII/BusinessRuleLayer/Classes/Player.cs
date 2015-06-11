@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace IntegradorProgramacionII.Classes
 {
@@ -43,6 +44,14 @@ namespace IntegradorProgramacionII.Classes
         public Player()
         { 
             
+        }
+
+        public bool ValidarLogin(string user, string pass)
+        {
+            PlayerDAO playerDAO = new PlayerDAO();
+            if (playerDAO.ValidarLogin(user, pass) != null)
+                return true;
+            return false;
         }
 
     }
