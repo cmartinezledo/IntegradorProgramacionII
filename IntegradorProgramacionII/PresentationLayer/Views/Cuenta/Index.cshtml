@@ -11,4 +11,36 @@
     <input type="password" class="form-control" name="password" placeholder="Contraseña">
   </div>
   <button type="submit" class="btn btn-default">Entrar</button>
+   <input type="button" class="btn btn-default" value="Crear Usuario" id="crear-usuario">
 </form>
+<div id="new-user">
+    <form action="/cuenta/singup" method="get" class="form-login">
+        <h1>Crear Usuario</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Usuario">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+        </div>
+        <button type="submit" class="btn btn-default">Crear Usuario</button>
+        <input type="reset" class="btn btn-default" value="Cancelar" id="Close">
+    </form>
+</div>
+<script>
+    $("#crear-usuario").click(function () {
+        $("#new-user").show();
+    });
+
+    $("#Close").click(function () {
+        $("#new-user").hide();
+    });
+</script>

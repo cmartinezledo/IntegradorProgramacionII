@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PresentationLayer.Models;
+using IntegradorProgramacionII.Classes;
 
 namespace PresentationLayer.Controllers
 {
@@ -27,6 +28,22 @@ namespace PresentationLayer.Controllers
             else {
                 return RedirectToAction("ErrorLogin", "Cuenta");
             }
+        }
+
+        public ActionResult Singup(string nombre, string apellido, string email, string username, string password)
+        {
+            Player nuevo = new Player();
+
+            nuevo.Nombre = nombre;
+            nuevo.Apellido = apellido;
+            nuevo.Email = email;
+            nuevo.User = username;
+            nuevo.Pass = password;
+            nuevo.Efectivo = 0;
+            nuevo.Fichas = 0;
+
+            //Crear usuario en la base de datos
+            return View();
         }
 
         public ActionResult ErrorLogin()

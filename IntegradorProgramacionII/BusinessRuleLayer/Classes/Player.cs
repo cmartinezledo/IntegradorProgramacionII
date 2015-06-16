@@ -12,6 +12,8 @@ namespace IntegradorProgramacionII.Classes
         private string user;
         private string pass;
         private string nombre;
+        private string apellido;
+        private string email;
         private double efectivo; //Dinero Billetera
         private double fichas; //Dinero en fichas
 
@@ -29,6 +31,16 @@ namespace IntegradorProgramacionII.Classes
         {
             get { return nombre; }
             set { nombre = value; }
+        }
+        public string Apellido
+        {
+            get { return apellido; }
+            set { apellido = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
         public double Efectivo
         {
