@@ -30,7 +30,7 @@ namespace PresentationLayer.Controllers
             }
         }
 
-        public ActionResult Singup(string nombre, string apellido, string email, string username, string password)
+        public ActionResult Signup(string nombre, string apellido, string email, string username, string password)
         {
             Player nuevo = new Player();
 
