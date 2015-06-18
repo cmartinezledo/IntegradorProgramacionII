@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c418e215510b4b84b6e5f1af15666754" Name="Diagram1" >
-        <EntityTypeShape EntityType="GameModel.Player" Width="1.5" PointX="2.375" PointY="1.375" />
-        <EntityTypeShape EntityType="GameModel.Perfil" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="GameModel.Player" Width="1.5" PointX="1.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GameModel.Perfil" Width="1.5" PointX="4.5" PointY="1.25" />
         <AssociationConnector Association="GameModel.PlayerPerfil" />
       </Diagram>
     </edmx:Diagrams>

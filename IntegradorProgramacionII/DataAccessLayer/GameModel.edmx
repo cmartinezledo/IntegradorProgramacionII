@@ -49,8 +49,8 @@
           <EntitySet Name="PlayerSet" EntityType="GameModel.Player" />
           <EntitySet Name="PerfilSet" EntityType="GameModel.Perfil" />
           <AssociationSet Name="PlayerPerfil" Association="GameModel.PlayerPerfil">
-            <End Role="Player" EntitySet="PlayerSet" />
-            <End Role="Perfil" EntitySet="PerfilSet" />
+            <End EntitySet="PlayerSet" Role="Player" />
+            <End EntitySet="PerfilSet" Role="Perfil" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Player">
@@ -68,11 +68,11 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NombrePerfil" Nullable="false" />
-          <Property Type="Int32" Name="PlayerId" Nullable="false" />
+          <Property Name="PlayerId" Nullable="false" Type="Int32" />
         </EntityType>
         <Association Name="PlayerPerfil">
-          <End Type="GameModel.Player" Role="Player" Multiplicity="1" />
-          <End Type="GameModel.Perfil" Role="Perfil" Multiplicity="*" />
+          <End Type="GameModel.Player" Multiplicity="1" Role="Player" />
+          <End Type="GameModel.Perfil" Multiplicity="*" Role="Perfil" />
           <ReferentialConstraint>
             <Principal Role="Player">
               <PropertyRef Name="Id" />

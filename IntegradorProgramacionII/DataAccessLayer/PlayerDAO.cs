@@ -18,12 +18,15 @@ namespace DataAccessLayer
         {
             GameModelContainer c = new GameModelContainer();
             c.PlayerSet.Add(p);
+            c.SaveChanges();
         }
 
         public void BajaPlayer(Player p)
         {
             GameModelContainer c = new GameModelContainer();
-            c.PlayerSet.Remove(p);
+            var a = c.PlayerSet.Where(k => k.Id == p.Id).Single();
+            c.PlayerSet.Remove(a);
+            c.SaveChanges();
         }
         /*
         public Player BuscarUsuario(int id)

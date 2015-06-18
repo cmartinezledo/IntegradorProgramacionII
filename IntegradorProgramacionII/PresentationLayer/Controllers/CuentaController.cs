@@ -20,7 +20,8 @@ namespace PresentationLayer.Controllers
 
         public ActionResult Login(string username, string password)
         {
-            if (username == "admin" && password == "12345")
+            Player player = new Player();
+            if (player.ValidarLogin(username, password))
             {
                 return RedirectToAction("Index", "Home");
                 //return View();
