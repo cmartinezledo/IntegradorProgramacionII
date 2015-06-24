@@ -40,9 +40,8 @@ namespace PresentationLayer.Controllers
             nuevo.Email = email;
             nuevo.User = username;
             nuevo.Pass = password;
-            nuevo.Efectivo = 0;
-            nuevo.Fichas = 0;
 
+            nuevo.SignUp(nuevo);
             //Crear usuario en la base de datos
             return View();
         }
