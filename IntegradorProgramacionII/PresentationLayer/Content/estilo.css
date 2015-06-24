@@ -57,3 +57,10 @@ input {
         height: 450px;
         margin-top: -225px;
     }
+#tablero {
+    background: green;
+    border-radius: 50px;
+    border: 10px solid red;
+    height: 300px;
+    width: 600px;
+}

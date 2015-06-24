@@ -12,17 +12,25 @@ namespace DataAccessLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Player
+    public partial class Players
     {
-        public Player()
+        public Players()
         {
-            this.Perfiles = new HashSet<Perfil>();
+            this.Efectivo = 500D;
+            this.Fichas = 0D;
+            this.Victorias = 0;
+            this.Jugadas = 0;
         }
     
         public int Id { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
         public string Nombre { get; set; }
-        public string Password { get; set; }
-    
-        public virtual ICollection<Perfil> Perfiles { get; set; }
+        public string Apellido { get; set; }
+        public string Email { get; set; }
+        public double Efectivo { get; set; }
+        public double Fichas { get; set; }
+        public int Victorias { get; set; }
+        public int Jugadas { get; set; }
     }
 }

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/10/2015 20:12:04
--- Generated from EDMX file: C:\Users\educacionit\Documents\GitHub\IntegradorProgramacionII\IntegradorProgramacionII\DataAccessLayer\GameModel.edmx
+-- Date Created: 06/24/2015 19:38:49
+-- Generated from EDMX file: D:\IntegradorProgramacionII\IntegradorProgramacionII\DataAccessLayer\GameModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -22,6 +22,9 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[PlayerSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PlayerSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -30,16 +33,15 @@ GO
 -- Creating table 'PlayerSet'
 CREATE TABLE [dbo].[PlayerSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
+    [User] nvarchar(max)  NOT NULL,
+    [Pass] nvarchar(max)  NOT NULL,
     [Nombre] nvarchar(max)  NOT NULL,
-    [Password] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'PerfilSet'
-CREATE TABLE [dbo].[PerfilSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [NombrePerfil] nvarchar(max)  NOT NULL,
-    [PlayerId] int  NOT NULL
+    [Apellido] nvarchar(max)  NOT NULL,
+    [Email] nvarchar(max)  NOT NULL,
+    [Efectivo] float  NOT NULL,
+    [Fichas] float  NOT NULL,
+    [Victorias] int  NOT NULL,
+    [Jugadas] int  NOT NULL
 );
 GO
 
@@ -53,29 +55,9 @@ ADD CONSTRAINT [PK_PlayerSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PerfilSet'
-ALTER TABLE [dbo].[PerfilSet]
-ADD CONSTRAINT [PK_PerfilSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [PlayerId] in table 'PerfilSet'
-ALTER TABLE [dbo].[PerfilSet]
-ADD CONSTRAINT [FK_PlayerPerfil]
-    FOREIGN KEY ([PlayerId])
-    REFERENCES [dbo].[PlayerSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PlayerPerfil'
-CREATE INDEX [IX_FK_PlayerPerfil]
-ON [dbo].[PerfilSet]
-    ([PlayerId]);
-GO
 
 -- --------------------------------------------------
 -- Script has ended

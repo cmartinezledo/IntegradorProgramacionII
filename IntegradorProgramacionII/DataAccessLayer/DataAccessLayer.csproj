@@ -71,13 +71,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GameModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Perfil.cs">
-      <DependentUpon>GameModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Player.cs">
-      <DependentUpon>GameModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PlayerDAO.cs" />
+    <Compile Include="Players.cs">
+      <DependentUpon>GameModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">

@@ -7,81 +7,44 @@
     <Schema Namespace="GameModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="GameModelStoreContainer">
     <EntitySet Name="PlayerSet" EntityType="GameModel.Store.PlayerSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PerfilSet" EntityType="GameModel.Store.PerfilSet" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="PlayerPerfil" Association="GameModel.Store.PlayerPerfil">
-      <End Role="Player" EntitySet="PlayerSet" />
-      <End Role="Perfil" EntitySet="PerfilSet" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="PlayerSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Pass" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Efectivo" Type="float" Nullable="false" DefaultValue="500" />
+    <Property Name="Fichas" Type="float" Nullable="false" DefaultValue="0" />
+    <Property Name="Victorias" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="Jugadas" Type="int" Nullable="false" DefaultValue="0" />
   </EntityType>
-  <EntityType Name="PerfilSet">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NombrePerfil" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PlayerId" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="PlayerPerfil">
-    <End Role="Player" Type="GameModel.Store.PlayerSet" Multiplicity="1" />
-    <End Role="Perfil" Type="GameModel.Store.PerfilSet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Player">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Perfil">
-        <PropertyRef Name="PlayerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GameModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="GameModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="PlayerSet" EntityType="GameModel.Player" />
-          <EntitySet Name="PerfilSet" EntityType="GameModel.Perfil" />
-          <AssociationSet Name="PlayerPerfil" Association="GameModel.PlayerPerfil">
-            <End EntitySet="PlayerSet" Role="Player" />
-            <End EntitySet="PerfilSet" Role="Perfil" />
-          </AssociationSet>
+          <EntitySet Name="PlayerSet" EntityType="GameModel.Players" />
         </EntityContainer>
-        <EntityType Name="Player">
+        <EntityType Name="Players">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="User" Nullable="false" />
+          <Property Type="String" Name="Pass" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" />
-          <Property Type="String" Name="Password" Nullable="false" />
-          <NavigationProperty Name="Perfiles" Relationship="GameModel.PlayerPerfil" FromRole="Player" ToRole="Perfil" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="Double" Name="Efectivo" Nullable="false" DefaultValue="500" />
+          <Property Type="Double" Name="Fichas" Nullable="false" DefaultValue="0" />
+          <Property Type="Int32" Name="Victorias" Nullable="false" DefaultValue="0" />
+          <Property Type="Int32" Name="Jugadas" Nullable="false" DefaultValue="0" />
         </EntityType>
-        <EntityType Name="Perfil">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="NombrePerfil" Nullable="false" />
-          <Property Name="PlayerId" Nullable="false" Type="Int32" />
-        </EntityType>
-        <Association Name="PlayerPerfil">
-          <End Type="GameModel.Player" Multiplicity="1" Role="Player" />
-          <End Type="GameModel.Perfil" Multiplicity="*" Role="Perfil" />
-          <ReferentialConstraint>
-            <Principal Role="Player">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Perfil">
-              <PropertyRef Name="PlayerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -89,20 +52,18 @@
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GameModelStoreContainer" CdmEntityContainer="GameModelContainer">
     <EntitySetMapping Name="PlayerSet">
-      <EntityTypeMapping TypeName="IsTypeOf(GameModel.Player)">
+      <EntityTypeMapping TypeName="IsTypeOf(GameModel.Players)">
         <MappingFragment StoreEntitySet="PlayerSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PerfilSet">
-      <EntityTypeMapping TypeName="IsTypeOf(GameModel.Perfil)">
-        <MappingFragment StoreEntitySet="PerfilSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="NombrePerfil" ColumnName="NombrePerfil" />
-          <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+          <ScalarProperty Name="Fichas" ColumnName="Fichas" />
+          <ScalarProperty Name="Victorias" ColumnName="Victorias" />
+          <ScalarProperty Name="Jugadas" ColumnName="Jugadas" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

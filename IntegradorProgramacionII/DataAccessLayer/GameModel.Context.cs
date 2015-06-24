@@ -25,7 +25,6 @@ namespace DataAccessLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Player> PlayerSet { get; set; }
-        public DbSet<Perfil> PerfilSet { get; set; }
+        public DbSet<Players> PlayerSet { get; set; }
     }
 }

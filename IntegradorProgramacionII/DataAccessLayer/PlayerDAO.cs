@@ -8,20 +8,20 @@ namespace DataAccessLayer
 {
     public class PlayerDAO
     {
-        public Player ValidarLogin(string user, string password)
+        public Players ValidarLogin(string user, string password)
         {
             GameModelContainer c = new GameModelContainer();
-            return c.PlayerSet.Where(p => p.Nombre == user && p.Password == password).FirstOrDefault();
+            return c.PlayerSet.Where(p => p.User == user && p.Pass == password).FirstOrDefault();
         }
         
-        public void AltaPlayer(Player p) 
+        public void AltaPlayer(Players p) 
         {
             GameModelContainer c = new GameModelContainer();
             c.PlayerSet.Add(p);
             c.SaveChanges();
         }
 
-        public void BajaPlayer(Player p)
+        public void BajaPlayer(Players p)
         {
             GameModelContainer c = new GameModelContainer();
             var a = c.PlayerSet.Where(k => k.Id == p.Id).Single();
