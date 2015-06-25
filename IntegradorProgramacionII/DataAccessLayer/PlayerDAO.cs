@@ -28,13 +28,11 @@ namespace DataAccessLayer
             c.PlayerSet.Remove(a);
             c.SaveChanges();
         }
-        /*
-        public Player BuscarUsuario(int id)
+        
+        public Players BuscarUsuario(string user, string pass)
         {
             GameModelContainer c = new GameModelContainer();
-            //return c.PlayerSet.Find(id);
-            return c.PlayerSet.Where(p => p.Id == id).FirstOrDefault();
+            return c.PlayerSet.Where(p => p.User == user && p.Pass == pass).FirstOrDefault();
         }
-         * */
     }
 }

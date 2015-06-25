@@ -23,6 +23,8 @@ namespace PresentationLayer.Controllers
             Player player = new Player();
             if (player.ValidarLogin(username, password))
             {
+                Session["game"] = new Croupier(player.Buscar(username, password));
+
                 return RedirectToAction("Index", "Home");
                 //return View();
             }

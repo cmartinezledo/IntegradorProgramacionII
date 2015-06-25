@@ -8,6 +8,6 @@ namespace PresentationLayer.Models
 {
     public class HomeViewModel
     {
-        
+        public double dinero { get; set; }
     }
 }

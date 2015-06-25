@@ -9,6 +9,7 @@ namespace IntegradorProgramacionII.Classes
 {
     public class Player
     {
+        private int id;
         private string user;
         private string pass;
         private string nombre;
@@ -18,6 +19,12 @@ namespace IntegradorProgramacionII.Classes
         private double fichas; //Dinero en fichas
         private int victorias;
         private int jugadas;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string User
         {
@@ -76,6 +83,23 @@ namespace IntegradorProgramacionII.Classes
             if (playerDAO.ValidarLogin(user, pass) != null)
                 return true;
             return false;
+        }
+
+        public Player Buscar(string user, string pass)
+        {
+            PlayerDAO playerDAO = new PlayerDAO();
+            Players datos = playerDAO.BuscarUsuario(user, pass);
+            Player player = new Player();
+            player.Id = datos.Id;
+            player.Nombre = datos.Nombre;
+            player.Apellido = datos.Apellido;
+            player.Efectivo = datos.Efectivo;
+            player.Email = datos.Email;
+            player.Fichas = datos.Fichas;
+            player.Jugadas = datos.Jugadas;
+            player.Victorias = datos.Victorias;
+
+            return player;
         }
 
         public void SignUp(Player p)

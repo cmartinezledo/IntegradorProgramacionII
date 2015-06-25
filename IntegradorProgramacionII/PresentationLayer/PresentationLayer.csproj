@@ -222,6 +222,7 @@
     <Content Include="Views\Home\Jugar.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Cuenta\Signup.cshtml" />
+    <Content Include="Views\Home\Apuesta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

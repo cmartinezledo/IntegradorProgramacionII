@@ -1,7 +1,10 @@
-﻿<nav class="nav-comprar">
+﻿
+@model PresentationLayer.Models.HomeViewModel
+
+<nav class="nav-comprar">
     <form action="/home/jugar" method="post">
         <div class="form-group">
-            <input type="text" name="dinero" placeholder="Ingrese cuanto dinero desea comprar" />
+            <input type="text" name="dinero" value="@Model.dinero" placeholder="Ingrese cuanto dinero desea comprar" />
         </div>
         <div class="form-group">
             <input type="text" name="comprar" placeholder="Cuanto quiere comprar" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using IntegradorProgramacionII.Classes;
+using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
 {
@@ -14,8 +15,13 @@ namespace PresentationLayer.Controllers
 
         public ActionResult Index()
         {
+            HomeViewModel vm = new HomeViewModel();
+            Croupier c = Session["game"] as Croupier;
+
+            vm.dinero = c.Jugador.Efectivo;
+            
             // este action es para comprar fichas
-            return View();
+            return View(vm);
         }
 
         public ActionResult Jugar() 
@@ -25,6 +31,7 @@ namespace PresentationLayer.Controllers
 
         public ActionResult Menu()
         {
+            Croupier c = Session["game"] as Croupier;
             return View();
         }
 

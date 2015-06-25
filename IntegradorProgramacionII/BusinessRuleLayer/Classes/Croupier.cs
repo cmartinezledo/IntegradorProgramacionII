@@ -10,13 +10,25 @@ namespace IntegradorProgramacionII.Classes
     {
         private int elegido;
         private Ruleta ruleta;
+        private Player jugador;
         private List<int> col1 = new List<int>(new int[] { 1, 3, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34 });
         private List<int> col2 = new List<int>(new int[] { 2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35 });
+
+        public Croupier(Player jugador) 
+        {
+            Jugador = jugador;
+        }
 
         public int Elegido
         {
             get { return elegido; }
             set { elegido = value; }
+        }
+
+        public Player Jugador
+        {
+            get { return jugador; }
+            set { jugador = value; }
         }
         
         public Ruleta Ruleta
