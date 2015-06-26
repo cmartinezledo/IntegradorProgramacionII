@@ -32,5 +32,6 @@ namespace DataAccessLayer
         public double Fichas { get; set; }
         public int Victorias { get; set; }
         public int Jugadas { get; set; }
+        public int Avatar { get; set; }
     }
 }

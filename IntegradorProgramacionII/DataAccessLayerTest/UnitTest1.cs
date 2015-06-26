@@ -21,6 +21,7 @@ namespace DataAccessLayerTest
             player.Nombre = "Pedro";
             player.Apellido = "Otero";
             player.Email = "pedro.otero@gmail.com";
+            player.Avatar = 6;
 
             DAO.AltaPlayer(player);
 

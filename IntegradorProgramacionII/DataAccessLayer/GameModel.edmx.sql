@@ -1,9 +1,9 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/24/2015 19:38:49
--- Generated from EDMX file: D:\IntegradorProgramacionII\IntegradorProgramacionII\DataAccessLayer\GameModel.edmx
+-- Date Created: 06/26/2015 12:44:19
+-- Generated from EDMX file: C:\Users\mariano.tellaeche\Documents\GitHub\IntegradorProgramacionII\IntegradorProgramacionII\DataAccessLayer\GameModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -41,7 +41,8 @@ CREATE TABLE [dbo].[PlayerSet] (
     [Efectivo] float  NOT NULL,
     [Fichas] float  NOT NULL,
     [Victorias] int  NOT NULL,
-    [Jugadas] int  NOT NULL
+    [Jugadas] int  NOT NULL,
+    [Avatar] int  NOT NULL
 );
 GO
 

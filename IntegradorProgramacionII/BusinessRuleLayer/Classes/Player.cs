@@ -19,6 +19,13 @@ namespace IntegradorProgramacionII.Classes
         private double fichas; //Dinero en fichas
         private int victorias;
         private int jugadas;
+        private int avatar;
+
+        public int Avatar
+        {
+            get { return avatar; }
+            set { avatar = value; }
+        }
 
         public int Id
         {
@@ -98,6 +105,7 @@ namespace IntegradorProgramacionII.Classes
             player.Fichas = datos.Fichas;
             player.Jugadas = datos.Jugadas;
             player.Victorias = datos.Victorias;
+            player.Avatar = datos.Avatar;
 
             return player;
         }
@@ -111,6 +119,7 @@ namespace IntegradorProgramacionII.Classes
             player.Nombre = p.Nombre;
             player.Apellido = p.Apellido;
             player.Email = p.Email;
+            player.Avatar = p.Avatar;
             playerDAO.AltaPlayer(player);
         }
 

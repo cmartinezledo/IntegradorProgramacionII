@@ -133,6 +133,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\estilo.css" />
+    <Content Include="Content\images\avatares\1.png" />
+    <Content Include="Content\images\avatares\2.png" />
+    <Content Include="Content\images\avatares\3.png" />
+    <Content Include="Content\images\avatares\4.png" />
+    <Content Include="Content\images\avatares\5.png" />
+    <Content Include="Content\images\avatares\6.png" />
+    <Content Include="Content\images\avatares\7.png" />
+    <Content Include="Content\images\avatares\8.png" />
+    <Content Include="Content\images\avatares\9.png" />
+    <Content Include="Content\images\fondo.jpg" />
+    <Content Include="Content\images\pano.png" />
+    <Content Include="Content\images\roulette.gif" />
+    <Content Include="Content\raphael.css" />
+    <Content Include="Content\roulette.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -204,6 +218,8 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\raphael.js" />
+    <Content Include="Scripts\roulette.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -226,7 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

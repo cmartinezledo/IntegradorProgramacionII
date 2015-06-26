@@ -1,7 +1,10 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400);
 body {
-    background: #808080;
+    background: black url(images/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position:inherit;
     font-family: 'Ubuntu';
+    color: #2e2e2e;
 }
 .form-login {
     background: rgba(255, 255, 255, 0.8);
@@ -22,63 +25,70 @@ h1 {
 input {
     padding: 10px;
 }
+header {
+    background: rgba(255,255,255,0.7);
+    border-top: 3px solid #3291d1;
+    border-bottom: 5px solid #3291d1;
+    float: left;
+    height: 200px;
+    margin: 20px;
+    padding: 10px;
+    width: 500px;
+}
+    header h3 {
+        display: inline-block;
+        vertical-align: top;
+    }
+    header #avatar {
+        float: left;
+        display: inline-block;
+        height: 150px;
+        margin-right: 50px;
+        width: 150px;
+    }
+    header #avatar img {
+        width: 100%;
+    }
+#apuesta {
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    border-top: 3px solid #3291d1;
+    border-bottom: 5px solid #3291d1;
+    height: 200px;
+    margin: 20px;
+    width: 600px;
+}
 .nav-comprar {
-    background: #1d5712;
-    position: absolute;
-    height: 100%;
-    width: 150px;
-    left: 0px;
-    top: 0px;
-    padding: 3px;
-}
-.nav-comprar input {
-    padding: 5px;
-    width: 90%;   
-}
-#tablero {
-    background: #23af69;
-    height: 500px;
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    width: 900px;
+    float: right;
+    width: 200px;
 }
 #new-user {
     background: rgba(240,240,240,0.7);
     display: none;
     height:100%;
-    position:absolute;
-    top: 0px;
-    left: 0px;
     width:100%;
 }
     #new-user form {
         background: rgb(255, 255, 255);    
-        height: 450px;
+        height: 500px;
         margin-top: -225px;
     }
 #tablero {
-    background: yellow;
-    height: auto;
-    width: 650px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    width: 1200px;
 }
-.casillero {
-    background: green;
-    border: 1px solid white;
-    display: inline-block;
-    margin: 0px;
-    height:50px;
-    width: 50px;
+.mini-avatar {
+    width: 30px;
 }
- #tablero p {
-        font-size: 21px;
-        text-align: center;
-        -moz-transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-    }
-#apuesta {
-    position: absolute;
-    left: 300px;
-    bottom: 150px;
+#btn-jugar {
+    color: #fff;
+    font-size: 28px;
+    background: #3291d1;
+    border-radius: 15px;
+    height: 75px;
+    width: 150px;
 }

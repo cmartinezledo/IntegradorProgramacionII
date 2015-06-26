@@ -33,7 +33,7 @@ namespace PresentationLayer.Controllers
             }
         }
 
-        public ActionResult Signup(string nombre, string apellido, string email, string username, string password)
+        public ActionResult Signup(string nombre, string apellido, string email, string username, string password, int avatar)
         {
             Player nuevo = new Player();
 
@@ -42,6 +42,7 @@ namespace PresentationLayer.Controllers
             nuevo.Email = email;
             nuevo.User = username;
             nuevo.Pass = password;
+            nuevo.Avatar = avatar;
 
             nuevo.SignUp(nuevo);
             //Crear usuario en la base de datos

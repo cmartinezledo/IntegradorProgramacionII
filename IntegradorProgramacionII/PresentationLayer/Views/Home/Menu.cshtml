@@ -1,24 +1,13 @@
-﻿
-@model PresentationLayer.Models.HomeViewModel
-
-<nav class="nav-comprar">
-    <form action="/home/jugar" method="post">
-        <div class="form-group">
-            <input type="text" name="dinero" value="@Model.dinero" placeholder="Ingrese cuanto dinero desea comprar" />
-        </div>
-        <div class="form-group">
-            <input type="text" name="comprar" placeholder="Cuanto quiere comprar" />
-        </div>
-        <div class="form-group">
-            <label>Valor de la ficha: </label>
-            <select name="valor">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-        </div>
-        <br />
-        <button type="submit" class="btn btn-default">Comprar</button>
-    </form>
-</nav>
+﻿<header>
+    <figure id="avatar"><img src="~/Content/images/avatares/@(Model.avatar).png" alt="AVATAR" /></figure>
+    <p>@Model.nombre</p>
+    <p>@Model.apellido</p>
+    <br />
+    <p>@Model.email</p>
+    <nav class="nav-comprar">
+        <form action="/home/jugar" method="post">
+            <h5>@Model.dinero</h5>
+            <button type="submit" class="btn btn-default">Comprar</button>
+        </form>
+    </nav>
+</header>

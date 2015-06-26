@@ -1,43 +1,22 @@
 ﻿@{
     ViewBag.Title = "Jugar";
-}
-
-<h2>Jugar</h2>
-<div id="tablero">
-    <div class="casillero"><p>3</p></div>
-    <div class="casillero"><p>6</p></div>
-    <div class="casillero"><p>9</p></div>
-    <div class="casillero"><p>12</p></div>
-    <div class="casillero"><p>15</p></div>
-    <div class="casillero"><p>18</p></div>
-    <div class="casillero"><p>21</p></div>
-    <div class="casillero"><p>24</p></div>
-    <div class="casillero"><p>27</p></div>
-    <div class="casillero"><p>30</p></div>
-    <div class="casillero"><p>33</p></div>
-    <div class="casillero"><p>36</p></div>
-    <div class="casillero"><p>2</p></div>
-    <div class="casillero"><p>5</p></div>
-    <div class="casillero"><p>8</p></div>
-    <div class="casillero"><p>11</p></div>
-    <div class="casillero"><p>14</p></div>
-    <div class="casillero"><p>17</p></div>
-    <div class="casillero"><p>20</p></div>
-    <div class="casillero"><p>23</p></div>
-    <div class="casillero"><p>26</p></div>
-    <div class="casillero"><p>29</p></div>
-    <div class="casillero"><p>32</p></div>
-    <div class="casillero"><p>35</p></div>
-    <div class="casillero"><p>1</p></div>
-    <div class="casillero"><p>4</p></div>
-    <div class="casillero"><p>7</p></div>
-    <div class="casillero"><p>10</p></div>
-    <div class="casillero"><p>13</p></div>
-    <div class="casillero"><p>16</p></div>
-    <div class="casillero"><p>19</p></div>
-    <div class="casillero"><p>22</p></div>
-    <div class="casillero"><p>25</p></div>
-    <div class="casillero"><p>28</p></div>
-    <div class="casillero"><p>31</p></div>
-    <div class="casillero"><p>34</p></div>
+    }
+<div id="controls">
+    <button id="btn-jugar">Jugar</button>
+    <a href="#" onclick="rouletteSpinner.doRollBall()">Roll Ball |</a>
+    <a href="#" onclick="rouletteSpinner.doTakeBall()">Take Ball</a>
 </div>
+<div id="tablero">
+    <div id="rouletteTable">
+        <div id="rouletteWheel"></div>
+        <div id="ballWheel"></div>
+    </div>
+</div>
+<script src="~/Scripts/raphael.js"></script>
+<script src="~/Scripts/roulette.js"></script>
+<script>
+        $('#btn-jugar').click(function () {
+            rouletteSpinner.doTogglePause();
+            rouletteSpinner.doRollBall();
+        });
+</script>

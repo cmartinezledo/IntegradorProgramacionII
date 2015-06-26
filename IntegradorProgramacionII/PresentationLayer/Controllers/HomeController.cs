@@ -19,7 +19,10 @@ namespace PresentationLayer.Controllers
             Croupier c = Session["game"] as Croupier;
 
             vm.dinero = c.Jugador.Efectivo;
-            
+            vm.nombre = c.Jugador.Nombre;
+            vm.apellido = c.Jugador.Apellido;
+            vm.email = c.Jugador.Email;
+            vm.avatar = c.Jugador.Avatar;
             // este action es para comprar fichas
             return View(vm);
         }
