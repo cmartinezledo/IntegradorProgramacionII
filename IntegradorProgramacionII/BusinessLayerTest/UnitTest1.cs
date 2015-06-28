@@ -9,7 +9,7 @@ namespace BusinessLayerTest
     [TestClass]
     public class UnitTest1
     {
-        Croupier pepe = new Croupier();
+        Croupier pepe = new Croupier(new Player());
         Ruleta ruleta = new Ruleta(); 
         
 

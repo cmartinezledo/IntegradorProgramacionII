@@ -57,19 +57,6 @@ namespace IntegradorProgramacionII.Classes
             tablero[34].Color = "Rojo";
             tablero[35].Color = "Negro";
             tablero[36].Color = "Rojo";
-
-            // 37 par
-            // 38 impar
-            // 39 rojo
-            // 40 negro
-            // 41 docena
-            // 42 2da
-            // 43 3era
-            // 44 1/18
-            // 45 19/36
-            // 46 fila 1
-            // 47 fila 2
-            // 48 fila 3
         }
 
         public void Apostar(Apuesta apuesta) 
