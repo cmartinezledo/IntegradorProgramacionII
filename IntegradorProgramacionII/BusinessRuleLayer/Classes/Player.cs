@@ -20,7 +20,7 @@ namespace IntegradorProgramacionII.Classes
         private int victorias;
         private int jugadas;
         private int avatar;
-
+        private PlayerDAO playerDAO;
         public int Avatar
         {
             get { return avatar; }
@@ -86,7 +86,7 @@ namespace IntegradorProgramacionII.Classes
 
         public bool ValidarLogin(string user, string pass)
         {
-            PlayerDAO playerDAO = new PlayerDAO();
+            playerDAO = new PlayerDAO();
             if (playerDAO.ValidarLogin(user, pass) != null)
                 return true;
             return false;
@@ -94,7 +94,7 @@ namespace IntegradorProgramacionII.Classes
 
         public Player Buscar(string user, string pass)
         {
-            PlayerDAO playerDAO = new PlayerDAO();
+            playerDAO = new PlayerDAO();
             Players datos = playerDAO.BuscarUsuario(user, pass);
             Player player = new Player();
             player.Id = datos.Id;
@@ -112,7 +112,7 @@ namespace IntegradorProgramacionII.Classes
 
         public void SignUp(Player p)
         {
-            PlayerDAO playerDAO = new PlayerDAO();
+            playerDAO = new PlayerDAO();
             Players player = new Players();
             player.User = p.User;
             player.Pass = p.Pass;
@@ -121,6 +121,18 @@ namespace IntegradorProgramacionII.Classes
             player.Email = p.Email;
             player.Avatar = p.Avatar;
             playerDAO.AltaPlayer(player);
+        }
+
+        public void Comprar(int id, double fichas)
+        {
+            playerDAO = new PlayerDAO();
+            playerDAO.Comprar(id, fichas);
+        }
+
+        public void Guardar(int id, double fichas, Boolean victoria)
+        {
+            playerDAO = new PlayerDAO();
+            playerDAO.Guardar(id, fichas, victoria);
         }
 
     }
