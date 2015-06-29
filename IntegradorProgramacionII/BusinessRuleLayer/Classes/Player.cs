@@ -21,6 +21,7 @@ namespace IntegradorProgramacionII.Classes
         private int jugadas;
         private int avatar;
         private PlayerDAO playerDAO;
+
         public int Avatar
         {
             get { return avatar; }

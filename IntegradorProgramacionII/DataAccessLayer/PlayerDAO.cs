@@ -52,6 +52,7 @@ namespace DataAccessLayer
             if (original != null)
             {
                 original.Fichas += fichas;
+                original.Jugadas++;
                 if (!victoria)
                     original.Victorias--;
                 else
