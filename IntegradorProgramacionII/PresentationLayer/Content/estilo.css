@@ -1,4 +1,28 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400);
+@font-face {
+	font-family: 'icomoon';
+	src:url('icomoon/fonts/icomoon.eot?-2d425p');
+	src:url('icomoon/fonts/icomoon.eot?#iefix-2d425p') format('embedded-opentype'),
+		url('icomoon/fonts/icomoon.ttf?-2d425p') format('truetype'),
+		url('icomoon/fonts/icomoon.woff?-2d425p') format('woff'),
+		url('icomoon/fonts/icomoon.svg?-2d425p#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="m-"], [class*=" m-"] {
+	font-family: 'icomoon';
+	speak: none;
+    font-size: 26px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 body {
     background: black url(images/fondo.jpg);
     background-repeat: no-repeat;
@@ -29,39 +53,60 @@ header {
     background: rgba(255,255,255,0.7);
     border-top: 3px solid #3291d1;
     border-bottom: 5px solid #3291d1;
-    float: left;
-    height: 200px;
-    margin: 20px;
-    padding: 10px;
-    width: 500px;
+    height: 250px;
+    margin: auto;
+    margin-top: 5px;
+    position: relative;
+    width: 80%;
 }
-    header h3 {
+    header #perfil {
         display: inline-block;
-        vertical-align: top;
+        height: 100%;
+        position: absolute;
+        width: 15%;
     }
-    header #avatar {
-        float: left;
-        display: inline-block;
+    header #perfil table{
+        margin: auto;
+        width: 90%;
+    }
+        header #perfil table tr {
+            
+            margin: 2px;
+        }
+            header #perfil table tr td{
+                font-size: 12px;
+                padding: 2px;
+                border-top: 1px solid black;
+                vertical-align: bottom;
+            }
+    header #perfil #avatar {
         height: 150px;
-        margin-right: 50px;
+        margin: auto;
+        margin-top: 2px;
+        margin-bottom: 2px;
         width: 150px;
     }
-    header #avatar img {
+    header #perfil #avatar img {
         width: 100%;
     }
 #apuesta {
-    display: inline-block;
     background: rgba(255,255,255,0.7);
-    border-top: 3px solid #3291d1;
-    border-bottom: 5px solid #3291d1;
-    height: 200px;
-    margin: 20px;
-    width: 600px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    width: 70%;
 }
 .nav-comprar {
-    float: right;
-    width: 200px;
+    left: 15%;
+    height: 100%;
+    position: absolute;
+    width: 15%;
 }
+    .nav-comprar table {
+        height: 100%;
+        position: absolute;
+        width: 90%;
+    }
 #new-user {
     background: rgba(240,240,240,0.7);
     display: none;
@@ -91,4 +136,21 @@ header {
     border-radius: 15px;
     height: 75px;
     width: 150px;
+}
+.m-dinero:before {
+	content: "\e600 ";
+}
+.m-victorias:before {
+	content: "\e601 ";
+}
+.m-partidas:before {
+	content: "\e602 ";
+}
+#elegido {
+    display: none;
+}
+#apuestas-realizadas {
+    background: red;
+    margin: 2%;
+    width: 25%;
 }

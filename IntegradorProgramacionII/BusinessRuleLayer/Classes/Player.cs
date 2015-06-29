@@ -107,6 +107,7 @@ namespace IntegradorProgramacionII.Classes
             player.Jugadas = datos.Jugadas;
             player.Victorias = datos.Victorias;
             player.Avatar = datos.Avatar;
+            player.User = datos.User;
 
             return player;
         }

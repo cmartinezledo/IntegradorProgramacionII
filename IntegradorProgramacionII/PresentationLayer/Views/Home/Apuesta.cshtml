@@ -1,13 +1,40 @@
-﻿@{
-    ViewBag.Title = "Apuesta";
-}
-
-<div id="apuesta">
-<form action="/" method="post">
-    <select>
-        <option value="Pleno">Pleno</option>
-        <option value="Semi">SemiPleno</option>
-    </select>
-    <input type="text" name="elegido" id="elegido" disabled="disabled"/>
-</form>
+﻿<div id="apuesta">
+    <form action="/" method="post" id="formapuesta">
+        <table>
+            <tr>
+                <td>Tipo de Apuesta</td>
+                <td>Numero</td>
+                <td>Dinero</td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="modalidad" id="modalidad">
+                        <option value="Pleno">Pleno</option>
+                        <option value="Semi">Semi</option>
+                        <option value="Calle">Calle</option>
+                        <option value="Cubre">Cubre</option>
+                        <option value="Cuadro">Cuadro</option>
+                        <option value="Linea">Linea</option>
+                        <option value="Columna">Columna</option>
+                        <option value="Docena">Docena</option>
+                        <option value="Chances Simples">Chances Simples</option>
+                        <option value="Doble Columna">Doble Columna</option>
+                        <option value="Doble Docena">Doble Docena</option>
+                    </select>
+                </td>
+                <td><input type="number" id="numero" min="0", max="36"/></td>
+                <td><input type="number" id="dinero" min="10", max="200"/></td>
+            </tr>
+        </table>
+        <input type="button" id="apostar" value="Apostar" />
+        <input type="text" name="elegido" id="elegido" disabled="disabled" />
+        <table id="apuestas-realizadas">
+            <tr>
+                <td>Modalidad</td>
+                <td>Numero</td>
+                <td>Dinero</td>
+            </tr>
+        </table>
+    </form>
+    <script src="~/Scripts/apuesta.js"></script>
 </div>

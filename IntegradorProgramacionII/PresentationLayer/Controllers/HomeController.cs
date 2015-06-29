@@ -25,6 +25,7 @@ namespace PresentationLayer.Controllers
             vm.apellido = c.Jugador.Apellido;
             vm.email = c.Jugador.Email;
             vm.avatar = c.Jugador.Avatar;
+            vm.user = c.Jugador.User;
             // este action es para comprar fichas
             return View(vm);
         }

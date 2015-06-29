@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\estilo.css" />
+    <Content Include="Content\icomoon\fonts\icomoon.svg" />
     <Content Include="Content\images\avatares\1.png" />
     <Content Include="Content\images\avatares\2.png" />
     <Content Include="Content\images\avatares\3.png" />
@@ -203,7 +204,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\icomoon\fonts\icomoon.woff" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\apuesta.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

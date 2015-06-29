@@ -1,15 +1,45 @@
 ﻿<header>
-    <figure id="avatar"><img src="~/Content/images/avatares/@(Model.avatar).png" alt="AVATAR" /></figure>
-    <p>@Model.nombre</p>
-    <p>@Model.apellido</p>
-    <br />
-    <p>@Model.email</p>
+    <div id="perfil">
+        <figure id="avatar"><img src="~/Content/images/avatares/@(Model.avatar).png" alt="AVATAR" /></figure>
+        <table>
+            <tr>
+                <td><b>Apodo: </b></td>
+                <td>@Model.user</td>
+            </tr>
+            <tr>
+                <td><b>Nombre: </b></td>
+                <td>@Model.nombre</td>
+            </tr>
+            <tr>
+                <td><b>Apellido: </b></td>
+                <td>@Model.apellido</td>
+            </tr>
+            <tr>
+                <td><b>Email: </b></td>
+                <td>@Model.email</td>
+            </tr>
+        </table>       
+    </div>
     <nav class="nav-comprar">
         <form action="/home/jugar" method="post">
-            <h5>@Model.dinero</h5>
-            <h5>@Model.partidas</h5>
-            <h5>@Model.victorias</h5>
-            <button type="submit" class="btn btn-default">Comprar</button>
+            <table>
+                <tr>
+                    <td colspan="2"><b>Partidas</b></td>
+                </tr>
+                <tr>
+                    <td><h5 class="">Jugadas</h5></td>
+                    <td><h5 class="">Victorias</h5></td>
+                </tr>                
+                <tr>
+                    <td><h5 class="m-partidas">@Model.partidas</h5></td>
+                    <td><h5 class="m-victorias">@Model.victorias</h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="m-dinero">@Model.dinero</h5></td>
+                    <td><button type="submit" class="btn btn-default">Buy</button></td>
+                </tr>
+            </table>            
         </form>
     </nav>
+    @Html.Partial("apuesta")
 </header>
