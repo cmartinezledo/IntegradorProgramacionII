@@ -19,6 +19,8 @@ namespace PresentationLayer.Controllers
             Croupier c = Session["game"] as Croupier;
 
             vm.dinero = c.Jugador.Efectivo;
+            vm.partidas = c.Jugador.Jugadas;
+            vm.victorias = c.Jugador.Victorias;
             vm.nombre = c.Jugador.Nombre;
             vm.apellido = c.Jugador.Apellido;
             vm.email = c.Jugador.Email;
