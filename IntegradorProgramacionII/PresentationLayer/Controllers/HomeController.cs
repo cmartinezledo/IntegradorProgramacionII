@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using IntegradorProgramacionII.Classes;
 using PresentationLayer.Models;
-
+using Newtonsoft.Json;
 namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
@@ -19,6 +19,7 @@ namespace PresentationLayer.Controllers
             Croupier c = Session["game"] as Croupier;
 
             vm.dinero = c.Jugador.Efectivo;
+            vm.fichas = c.Jugador.Fichas;
             vm.partidas = c.Jugador.Jugadas;
             vm.victorias = c.Jugador.Victorias;
             vm.nombre = c.Jugador.Nombre;
@@ -29,7 +30,11 @@ namespace PresentationLayer.Controllers
             // este action es para comprar fichas
             return View(vm);
         }
-
+        public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
+        {
+            return View();
+        }
+ 
         public ActionResult Jugar() 
         {
             return View();
