@@ -1,9 +1,11 @@
 ﻿$(document).ready(function () {
     var apuestas = new Array();
     $('#apostar').click(function () {
-        apostar();
-        EnviarApuestas();
-    }); 
+        apostar();     
+    });
+    $('#enviarapuesta').click(function () {
+        EnviarApuesta();
+    });
 
     function apostar() {
         var apuesta = {
@@ -20,9 +22,10 @@
     }
 
     function EnviarApuestas() {
+        var elegido = $('#elegido').val();
         var datos = {
             apostado: apuestas,
-            elegido: 40
+            elegido: elegido
         };
         $.ajax({
             type: "POST",
@@ -35,6 +38,4 @@
             }
         });
     }
-
-
 });
