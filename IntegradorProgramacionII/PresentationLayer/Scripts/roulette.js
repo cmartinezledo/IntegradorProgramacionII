@@ -1,4 +1,3 @@
-var mod = require('apuesta.js');
 function Rgb(r, g, b) {
 	this.r = r;
 	this.g = g;
@@ -481,10 +480,7 @@ var ball = {
 		this.sa = this.roulette.roundAngle(this.sa);
 		var w = this.detWinningNumber();
 		console.log("Winner: w[" + w + "]");
-		$('#elegido').val(w);
-		EnviarApuestas(w);
 		rouletteSpinner.doTogglePause();
-		
 	},
 	detWinningNumber: function() {
 		// search segments for ballangle
