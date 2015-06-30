@@ -22,6 +22,5 @@ namespace IntegradorProgramacionII.Classes
             get { return color; }
             set { color = value; }
         }
-
     }
 }

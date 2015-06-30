@@ -8,7 +8,7 @@ namespace IntegradorProgramacionII.Classes
 {
     public class Apuesta
     {
-        private Casillero numero;
+        private List<Casillero> numeros;
         private double dinero;
         private Modalidad modalidad;
         private Player player;
@@ -19,10 +19,10 @@ namespace IntegradorProgramacionII.Classes
             set { player = value; }
         }
 
-        public Casillero Numero
+        public List<Casillero> Numeros
         {
-            get { return numero; }
-            set { numero = value; }
+            get { return numeros; }
+            set { numeros = value; }
         }
         
         public double Dinero
@@ -37,10 +37,10 @@ namespace IntegradorProgramacionII.Classes
             set { modalidad = value; }
         }
 
-        public Apuesta(Casillero numero, double fichas, 
+        public Apuesta(List<Casillero> numeros, double fichas, 
             Modalidad modalidad, Player player)
         {
-            this.numero = numero;
+            this.numeros = numeros;
             this.dinero = fichas;
             this.modalidad = modalidad;
             this.player = player;

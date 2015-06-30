@@ -8,23 +8,15 @@
 </div>
 <div id="tablero">
     <div id="rouletteTable">
-        <div id="rouletteWheel">
-            <span class="cero"></span>
-            <span class="uno"></span>
-            <span class="dos"></span>
-        </div>
+        <div id="rouletteWheel"></div>
         <div id="ballWheel"></div>
     </div>
 </div>
-<input type="button" id="enviarapuesta" value="Enviar Apuesta" />
 <script src="~/Scripts/raphael.js"></script>
 <script src="~/Scripts/roulette.js"></script>
 <script>
         $('#btn-jugar').click(function () {
             rouletteSpinner.doTogglePause();
             rouletteSpinner.doRollBall();
-        });
-        $('#enviarapuesta').click(function () {
-            EnviarApuesta();
         });
 </script>
