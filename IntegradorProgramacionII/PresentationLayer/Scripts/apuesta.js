@@ -4,7 +4,7 @@
         apostar();     
     });
     $('#enviarapuesta').click(function () {
-        EnviarApuesta();
+        EnviarApuestas();
     });
 
     function apostar() {

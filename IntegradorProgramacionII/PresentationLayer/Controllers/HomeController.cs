@@ -33,6 +33,9 @@ namespace PresentationLayer.Controllers
         }
         public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
         {
+            Croupier c = Session["game"] as Croupier;
+            c.Elegido = Elegido;
+
             return View();
         }
  
