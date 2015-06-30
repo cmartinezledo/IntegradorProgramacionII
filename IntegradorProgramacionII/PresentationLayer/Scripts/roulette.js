@@ -480,6 +480,7 @@ var ball = {
 		this.sa = this.roulette.roundAngle(this.sa);
 		var w = this.detWinningNumber();
 		console.log("Winner: w[" + w + "]");
+		$('#elegido').val(w);
 		rouletteSpinner.doTogglePause();
 	},
 	detWinningNumber: function() {

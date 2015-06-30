@@ -33,7 +33,23 @@ namespace PresentationLayer.Controllers
         }
         public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
         {
-            return View();
+            Croupier c = Session["game"] as Croupier;
+            c.Elegido = Elegido;
+
+            foreach (var item in apostado)
+            {
+                Modalidad modalidad = new Modalidad(item.modalidad);
+                Casillero casillero = new Casillero();
+                casillero.Valor = 3;//c.Ruleta.tablero[item.numero].Valor;
+                casillero.Color = "Rojo";//c.Ruleta.tablero[item.numero].Color;
+                
+                Apuesta a = new Apuesta(casillero, item.dinero, modalidad, c.Jugador);
+                c.Apuesta.Add(a);
+            }
+
+            c.Pagar();
+
+            return View("Index", "Home");
         }
  
         public ActionResult Jugar() 

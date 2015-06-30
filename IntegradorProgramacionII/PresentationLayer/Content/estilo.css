@@ -147,6 +147,9 @@ header {
 .m-partidas:before {
 	content: "\e602 ";
 }
+.m-fichas:before {
+	content: "\e608 ";
+}
 #elegido {
     display: none;
 }
@@ -154,4 +157,14 @@ header {
     background: red;
     margin: 2%;
     width: 25%;
+}
+.cero {
+    position: absolute;
+    top: 80px;
+    left: 342px;
+    width: 25px;
+    height: 100px;
+}
+.cero:before {
+    content: "\e602 ";
 }

@@ -2,8 +2,11 @@
     var apuestas = new Array();
     $('#apostar').click(function () {
         apostar();
-        EnviarApuestas();
     }); 
+
+    $('#enviarapuesta').click(function () {
+        EnviarApuestas();
+    });
 
     function apostar() {
         var apuesta = {
@@ -20,9 +23,10 @@
     }
 
     function EnviarApuestas() {
+        var elegido = $('#elegido').val()  
         var datos = {
             apostado: apuestas,
-            elegido: 40
+            elegido: elegido
         };
         $.ajax({
             type: "POST",
@@ -30,11 +34,13 @@
             dataType: "json",
             data: JSON.stringify(datos),
             contentType: "application/json; charset=utf-8",
-            error: function (error) {
-                alert("fail !!!");
-            }
+           // error: function (error) {
+             //   alert("fail !!!");
+           // }
         });
     }
+
+   
 
 
 });
