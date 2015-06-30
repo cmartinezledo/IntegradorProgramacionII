@@ -17,6 +17,7 @@ namespace IntegradorProgramacionII.Classes
         public Croupier(Player jugador) 
         {
             Jugador = jugador;
+            Inicializar();
         }
 
         public int Elegido

@@ -3,10 +3,7 @@
     $('#apostar').click(function () {
         apostar();
     });
-    $('#enviarapuesta').click(function () {
-        EnviarApuestas();
-    });
-
+    
     function apostar() {
         modalidad = $('#modalidad').val();
         switch (modalidad) {
@@ -54,9 +51,13 @@
             dataType: "json",
             data: JSON.stringify(datos),
             contentType: "application/json; charset=utf-8",
+
             error: function (error) {
                 alert("fail !!!");
             }
         });
     }
+
+    window.RULETA_APP = {};
+    window.RULETA_APP.enviarApuestas = EnviarApuestas;
 });

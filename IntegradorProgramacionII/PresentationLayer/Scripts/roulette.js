@@ -482,6 +482,7 @@ var ball = {
 		console.log("Winner: w[" + w + "]");
 		$('#elegido').val(w);
 		rouletteSpinner.doTogglePause();
+		RULETA_APP.enviarApuestas();
 	},
 	detWinningNumber: function() {
 		// search segments for ballangle

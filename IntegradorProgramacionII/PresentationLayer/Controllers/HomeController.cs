@@ -36,6 +36,25 @@ namespace PresentationLayer.Controllers
             Croupier c = Session["game"] as Croupier;
             c.Elegido = Elegido;
             
+            List<Casillero> numeros = new List<Casillero>();
+            Casillero casilla;
+            Apuesta bet;
+            foreach (var item in apostado)
+            {
+                foreach (var num in item.numeros)
+                {
+                    casilla = new Casillero();
+                    casilla.Valor = num;
+                    if(num < 37)
+                        casilla.Color = c.Ruleta.tablero[num].Color;
+                    numeros.Add(casilla);
+                }
+                bet = new Apuesta(new List<Casillero>(numeros), Convert.ToDouble(item.dinero) , new Modalidad(item.modalidad), c.Jugador);
+                c.Ruleta.Apostar(bet);
+                numeros.Clear();
+            }
+            double lala = c.Pagar();
+            
             return View();
         }
  
