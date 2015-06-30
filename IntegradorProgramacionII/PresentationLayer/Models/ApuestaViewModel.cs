@@ -9,7 +9,7 @@ namespace PresentationLayer.Models
     public class ApuestaViewModel
     {
        public string modalidad { get; set; }
-       public int numero { get; set; }
+       public int[] numeros { get; set; }
        public int dinero { get; set; }    
     }
 }

@@ -1,24 +1,45 @@
 ﻿$(document).ready(function () {
     var apuestas = new Array();
     $('#apostar').click(function () {
-        apostar();     
+        apostar();
     });
     $('#enviarapuesta').click(function () {
         EnviarApuestas();
     });
 
     function apostar() {
-        var apuesta = {
-            "modalidad" : $('#modalidad').val(),
-            "numero": $('#numero').val(),
-            "dinero": $('#dinero').val()            
-        }
+        modalidad = $('#modalidad').val();
+        switch (modalidad) {
+            case "Pleno" : 
+                 apuesta = {
+                        "modalidad" : $('#modalidad').val(),
+                         numeros: [$('#numero').val()],
+                        "dinero": $('#dinero').val()            
+                 }
+                 $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + "</td><td>" + apuesta.dinero + "</td></tr>");
+                break;
+            case "Semi" : 
+                apuesta = {
+                    "modalidad" : $('#modalidad').val(),
+                     numeros: [$('#numero').val(), $('#numero1').val()],
+                    "dinero": $('#dinero').val()            
+                }
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.dinero + "</td></tr>");
+                break;
+            case "Calle": case "Cubre":
+                apuesta = {
+                    "modalidad": $('#modalidad').val(),
+                    numeros: [$('#numero').val(), $('#numero1').val(), $('#numero2').val()],
+                    "dinero": $('#dinero').val()
+                }
+            default:
 
+        }
+        
         apuestas.push(apuesta);
         $('#formapuesta')[0].reset();
         console.log(apuestas);
-
-        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numero + "</td><td>" + apuesta.dinero + "</td></tr>");
+        
     }
 
     function EnviarApuestas() {

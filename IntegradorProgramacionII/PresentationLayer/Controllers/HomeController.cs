@@ -35,7 +35,7 @@ namespace PresentationLayer.Controllers
         {
             Croupier c = Session["game"] as Croupier;
             c.Elegido = Elegido;
-
+            
             return View();
         }
  
