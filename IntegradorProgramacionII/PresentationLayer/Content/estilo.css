@@ -120,11 +120,12 @@ header {
     }
 #tablero {
     background: rgba(255,255,255,0.7);
+    background-size: 100%;
     border-radius: 25px;
     margin: auto;
     margin-top: 50px;
     padding: 20px;
-    width: 1200px;
+    width: 80%;
 }
 .mini-avatar {
     width: 30px;

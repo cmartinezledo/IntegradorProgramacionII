@@ -17,4 +17,6 @@
 
         $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numero + "</td><td>" + apuesta.dinero + "</td></tr>");
     }
+
+
 });
