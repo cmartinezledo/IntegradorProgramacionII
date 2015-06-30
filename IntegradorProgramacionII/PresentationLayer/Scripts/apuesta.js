@@ -22,7 +22,7 @@
     function EnviarApuestas() {
         var datos = {
             apostado: apuestas,
-            elegido: $('#elegido').val()
+            elegido: 40
         };
         $.ajax({
             type: "POST",
