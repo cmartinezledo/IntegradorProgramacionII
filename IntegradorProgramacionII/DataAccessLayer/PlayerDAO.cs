@@ -53,9 +53,7 @@ namespace DataAccessLayer
             {
                 original.Fichas += fichas;
                 original.Jugadas++;
-                if (!victoria)
-                    original.Victorias--;
-                else
+                if (victoria)
                     original.Victorias++;
                 c.SaveChanges();
             }
