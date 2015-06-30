@@ -21,10 +21,10 @@ namespace IntegradorProgramacionII.Classes
                 case "Semi":
                     this.multiplicador = 17;
                     break;
-                case "Calle": case "Cubre": //Cubre = 0, + (1,2) (2,3)
+                case "Calle":
                     this.multiplicador = 11;
                     break;
-                case "Cuadro": 
+                case "Cuadro": case "Cubre":
                     this.multiplicador = 8;
                     break;
                 case "Linea":
