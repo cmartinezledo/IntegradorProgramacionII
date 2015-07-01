@@ -15,8 +15,8 @@ namespace IntegradorProgramacionII.Classes
         private string nombre;
         private string apellido;
         private string email;
-        private double efectivo; //Dinero Billetera
-        private double fichas; //Dinero en fichas
+        private int efectivo; //Dinero Billetera
+        private int fichas; //Dinero en fichas
         private int victorias;
         private int jugadas;
         private int avatar;
@@ -59,12 +59,12 @@ namespace IntegradorProgramacionII.Classes
             get { return email; }
             set { email = value; }
         }
-        public double Efectivo
+        public int Efectivo
         {
             get { return efectivo; }
             set { efectivo = value; }
         }
-        public double Fichas
+        public int Fichas
         {
             get { return fichas; }
             set { fichas = value; }
@@ -102,9 +102,9 @@ namespace IntegradorProgramacionII.Classes
             player.Pass = datos.Pass;
             player.Nombre = datos.Nombre;
             player.Apellido = datos.Apellido;
-            player.Efectivo = datos.Efectivo;
+            player.Efectivo = Convert.ToInt32(datos.Efectivo);
             player.Email = datos.Email;
-            player.Fichas = datos.Fichas;
+            player.Fichas = Convert.ToInt32(datos.Fichas);
             player.Jugadas = datos.Jugadas;
             player.Victorias = datos.Victorias;
             player.Avatar = datos.Avatar;

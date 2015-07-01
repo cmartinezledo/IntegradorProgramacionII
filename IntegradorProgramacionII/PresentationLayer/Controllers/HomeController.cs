@@ -72,15 +72,26 @@ namespace PresentationLayer.Controllers
                 gano = gano,
                 salio = Elegido,
             });
-
             return Json(json);
-
         }
  
-        public ActionResult Jugar() 
+        public ActionResult Comprar(int fichas)
         {
-            return View();
+            Croupier c = Session["game"] as Croupier;
+            
+            c.Jugador.Comprar(c.Jugador.Id, fichas);
+            c.Jugador = c.Jugador.Buscar(c.Jugador.User, c.Jugador.Pass);
+            Session["game"] = c;
+
+            var json = Json(new
+            {
+                fichas = c.Jugador.Fichas,
+                dinero = c.Jugador.Efectivo
+            });
+
+            return Json(json);
         }
+
 
         public ActionResult Menu()
         {

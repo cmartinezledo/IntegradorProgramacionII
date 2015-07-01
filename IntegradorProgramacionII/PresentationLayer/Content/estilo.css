@@ -183,3 +183,22 @@ input[type="number"] {
     height: 50px;
     width: 65px;
 }
+#comprar {
+    background: #2e2e2e;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;  
+    margin-left: -150px;  
+    z-index: 3;
+    display: none;
+}
+    #comprar input[type="number"] {
+        color: black;
+    }

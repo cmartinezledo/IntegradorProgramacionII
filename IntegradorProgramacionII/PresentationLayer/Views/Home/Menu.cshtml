@@ -21,11 +21,10 @@
         </table>       
     </div>
     <nav class="nav-comprar">
-        <form action="/home/jugar" method="post">
             <table>
                 <tr>
                     <td colspan="2"><b>Partidas</b></td>
-                    <td><button type="submit" class="btn" disabled="disabled">Buy</button></td>
+                    <td><button type="submit" class="btn" id="btn-comprar" >Buy</button></td>
                 </tr>
                 <tr>
                     <td><h5 class="">Jugadas</h5></td>
@@ -36,11 +35,15 @@
                     <td><h5 class="m-victorias">@Model.victorias</h5></td>
                 </tr>
                 <tr>
-                    <td><h5 class="m-dinero">@Model.dinero</h5></td> <br />
+                    <td><h5 class="m-dinero">@Model.dinero</h5></td>
                     <td><h5 class="m-fichas">@Model.fichas</h5></td>
                 </tr>
             </table>            
-        </form>
     </nav>
     @Html.Partial("apuesta")
 </header>
+<div id="comprar">
+    <p class="m-dinero">Dinero Disponible: @Model.dinero</p>
+    <p class="m-fichas">Fichas a comprar: </p><input type="number" name="fichas-comprar" id="fichas-comprar" />
+    <button id="btncompar">Comprar</button>
+</div>

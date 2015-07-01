@@ -8,7 +8,7 @@
         if ($('#fichas').val() === "") {
             alert("Completar la cantidad de fichas");
         } else {
-            if ($('#fichas').val() < 1 || $('#fichas').val() >= parseInt($('.m-fichas').text())) {
+            if ($('#fichas').val() < 1 || $('#fichas').val() > parseInt($('.m-fichas').text())) {
                 alert("Las fichas son negativas o superan el valor de fichas que posee");
             } else { 
                 apostar();
@@ -22,7 +22,13 @@
         borrar();
         switchapuestas();
     });
-
+    $('#btn-comprar').click(function() {
+        $('#comprar').show();
+    });
+    $('#btncompar').click(function () {
+        Comprar();
+        $('#comprar').hide();
+    });
     function borrar() {
         $('#numeros span').remove();
         $('#sel-menu').remove();
@@ -238,6 +244,11 @@
         $('.m-partidas').text(datos.Data.jugadas);
     };
 
+    function refrescarFichas(datos) {
+        $('.m-fichas').text(datos.Data.fichas);
+        $('.m-dinero').text(datos.Data.dinero);
+    };
+
     function EnviarApuestas() {
         var elegido = $('#elegido').val();
         var datos = {
@@ -250,25 +261,46 @@
             dataType: "json",
             data: JSON.stringify(datos),
             contentType: "application/json; charset=utf-8",
-            success: function(data) {
+            success: function (data) {
                 var jsonData = JSON.stringify(data);
                 var jsonParse = JSON.parse(jsonData);
-                
+
                 //console.log(jsonParse.Data.gano);
 
                 if (jsonParse.Data.gano == false) {
                     alert("Perdiste");
-                    
+
                 } else {
                     alert(jsonParse.Data.nombre + " has ganado, salio el numero: " + jsonParse.Data.salio);
                 }
                 refrescar(jsonParse);
             },
             error: function (error) {
-                alert("fail !!!");
+                alert("Se perdio la conexion!!!");
             }
         });
     }
+        function Comprar() {
+            var datos = {
+                fichas: $('#fichas-comprar').val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Home/Comprar",
+                dataType: "json",
+                data: JSON.stringify(datos),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    var jsonData = JSON.stringify(data);
+                    var jsonParse = JSON.parse(jsonData);
+                    refrescarFichas(jsonParse);
+                },
+                error: function (error) {
+                    alert("Se perdio la conexion!!!");
+                }
+            });
+        }
+    
     window.RULETA_APP = {};
     window.RULETA_APP.enviarApuestas = EnviarApuestas;
 });
