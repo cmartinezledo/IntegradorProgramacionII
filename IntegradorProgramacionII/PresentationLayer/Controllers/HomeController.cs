@@ -34,7 +34,7 @@ namespace PresentationLayer.Controllers
         public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
         {
             Croupier c = Session["game"] as Croupier;
-            c.Elegido = 24;//Elegido;
+            c.Elegido = Elegido;
             
             List<Casillero> numeros = new List<Casillero>();
             Casillero casilla;
