@@ -10,8 +10,8 @@ namespace DataAccessLayerTest
     {
         
         [TestMethod]
-        [TestCategory("Alta")]
-        public void AltaPlayer()
+        [TestCategory("Player")]
+        public void ABPlayer()
         {
             PlayerDAO DAO = new PlayerDAO();
             Players player = new Players();
@@ -28,7 +28,7 @@ namespace DataAccessLayerTest
             player = DAO.ValidarLogin("Pepe", "1234");
             Assert.IsNotNull(player);
 
-           // DAO.BajaPlayer(player);
+            DAO.BajaPlayer(player);
         }
         
     }

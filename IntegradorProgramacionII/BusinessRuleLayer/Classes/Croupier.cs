@@ -50,10 +50,10 @@ namespace IntegradorProgramacionII.Classes
             return Elegido;
         }
 
-        public double Pagar()
+        public int Pagar()
         {
-            double monto = 0;
-            double perdida = 0;
+            int monto = 0;
+            int perdida = 0;
             Boolean gano = false;
             List<Apuesta> apuestas = ruleta.apuestas;
             foreach (Apuesta apuesta in ruleta.apuestas)

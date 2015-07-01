@@ -9,7 +9,7 @@ namespace IntegradorProgramacionII.Classes
     public class Modalidad
     {
         private String nombre;
-        private double multiplicador;
+        private int multiplicador;
 
         public Modalidad(String nombre) 
         {
@@ -36,9 +36,6 @@ namespace IntegradorProgramacionII.Classes
                 case "Chances Simples": //Color, Paridad, 1-18, 19-36
                     this.multiplicador = 1;
                     break;
-                case "Doble Columna": case "Doble Docena":
-                    this.multiplicador= 1/2;
-                    break;
             }
             this.nombre = nombre;
         }
@@ -49,7 +46,7 @@ namespace IntegradorProgramacionII.Classes
             set { nombre = value; }
         }
 
-        public double Multiplicador
+        public int Multiplicador
         {
             get { return multiplicador; }
             set { multiplicador = value; }

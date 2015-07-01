@@ -34,7 +34,7 @@ namespace PresentationLayer.Controllers
         public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
         {
             Croupier c = Session["game"] as Croupier;
-            c.Elegido = Elegido;
+            c.Elegido = 24;//Elegido;
             
             List<Casillero> numeros = new List<Casillero>();
             Casillero casilla;
@@ -49,12 +49,14 @@ namespace PresentationLayer.Controllers
                         casilla.Color = c.Ruleta.tablero[num].Color;
                     numeros.Add(casilla);
                 }
-                bet = new Apuesta(new List<Casillero>(numeros), Convert.ToDouble(item.dinero) , new Modalidad(item.modalidad), c.Jugador);
+                bet = new Apuesta(new List<Casillero>(numeros), item.dinero, new Modalidad(item.modalidad), c.Jugador);
                 c.Ruleta.Apostar(bet);
                 numeros.Clear();
             }
-            double lala = c.Pagar();
             
+            //Actualizamos la DB
+            //Si te sirve Marian, guarda en una variable el resultado de c.Pagar() si es mayor a cero, el flaco gano
+            c.Jugador.Guardar(c.Jugador.Id, c.Pagar());
             return View();
         }
  

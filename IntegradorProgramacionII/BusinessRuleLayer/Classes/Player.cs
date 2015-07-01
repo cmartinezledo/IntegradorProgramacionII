@@ -131,10 +131,13 @@ namespace IntegradorProgramacionII.Classes
             playerDAO.Comprar(id, fichas);
         }
 
-        public void Guardar(int id, double fichas, Boolean victoria)
+        public void Guardar(int id, int fichas)
         {
             playerDAO = new PlayerDAO();
-            playerDAO.Guardar(id, fichas, victoria);
+            if(fichas > 0)//Gano
+                playerDAO.Guardar(id, fichas, true);
+            else
+                playerDAO.Guardar(id, fichas, false);
         }
 
     }
