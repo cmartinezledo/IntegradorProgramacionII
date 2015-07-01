@@ -1,18 +1,13 @@
 ﻿@{
     ViewBag.Title = "Jugar";
     }
-<div id="controls">
-    <button id="btn-jugar">Jugar</button>
-    <a href="#" onclick="rouletteSpinner.doRollBall()">Roll Ball |</a>
-    <a href="#" onclick="rouletteSpinner.doTakeBall()">Take Ball</a>
-</div>
+
 <div id="tablero">
     <div id="rouletteTable">
         <div id="rouletteWheel"></div>
         <div id="ballWheel"></div>
     </div>
 </div>
-<input type="button" id="enviarapuesta" value="Enviar" />
 <script src="~/Scripts/raphael.js"></script>
 <script src="~/Scripts/roulette.js"></script>
 <script>

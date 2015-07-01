@@ -1,36 +1,211 @@
 ﻿$(document).ready(function () {
     var apuestas = new Array();
+    CrearNumeros(0);
     $('#apostar').click(function () {
-        apostar();
+        if ($('#fichas').val() === "") {
+            alert("Completar la cantidad de fichas");
+        } else {
+            if ($('#fichas').val() < 1) {
+                alert("Las fichas no pueden ser negativas");
+            } else { 
+                apostar();
+                $("#btn-jugar").removeAttr('disabled');
+                borrar();
+                CrearNumeros(0);
+            }
+        }
     });
+    $('#modalidad').change(function () {
+        borrar();
+        switchapuestas();
+    });
+
+    function borrar() {
+        $('#numeros span').remove();
+        $('#sel-menu').remove();
+        $('#sel-menu1').remove();
+        $('#sel-menu2').remove();
+        $('#sel-menu3').remove();
+        $('#numero1').remove();
+        $('#numero2').remove();
+        $('#numero3').remove();
+    }
+    function CrearNumeros(num) {
+        num = num;
+        $('#numeros').append("<select id='sel-menu'>");
+        for (var i = 1; i < 37; i++) {
+            $('#sel-menu').append("<option id='numero' value" + i + ">" + i + "</option>");
+        }
+        $('#numeros').append("</select>");
+        if (num !== 0) {
+            for (var k = 1; k < num; k++) {
+                $('#numeros').append("<select id='sel-menu" + k + "'>");
+            
+            for (var j = 1; j < 37; j++) {
+                $("#sel-menu"+k+"").append("<option id='numero"+k+"' value" + j + ">" + j + "</option>");
+            }
+            }
+            $('#numeros').append("</select>");
+        }
+    }
     
+    function switchapuestas() {
+        modalidad = $('#modalidad').val();
+        switch (modalidad) {
+            case "Pleno":
+                CrearNumeros(0);
+                break;
+            case "Semi":
+                CrearNumeros(2);                
+                break;
+            case "Calle":
+                CrearNumeros(2);
+                break;
+            case "Cuadro":
+                CrearNumeros(4);
+                break;
+            case "Cubre":
+                $('#numeros').append("<span id='numero'>0, 1, 2, 3<span>");
+                break;
+            case "Columna":
+                $('#numeros').append("<select id='sel-menu'><option id='numero' value='46'>1° Columna</option><option id='numero' value='47'>2° Columna</option><option id='numero' value='48'>3° Columna</option></select>");
+                break;
+            case "Docena":
+                $('#numeros').append("<select id='sel-menu'><option id='numero' value='41'>1° Docena</option><option id='numero' value='42'>2° Docena</option><option id='numero' value='43'>3° Docena</option></select>");
+                break;
+            case "Color":
+                $('#numeros').append("<select id='sel-menu'><option id='numero' value='39'>Rojo</option><option id='numero' value='40'>Negro</option></select>");
+                break;
+            case "Paridad":
+                $('#numeros').append("<select id='sel-menu'><option id='numero' value='37'>Par</option><option id='numero' value='38'>Impar</option></select>");
+                break;
+            case "1-18/19-36":
+                $('#numeros').append("<select id='sel-menu'><option id='numero' value='44'>1-18</option><option id='numero' value='45'>19-36</option></select>");
+                break;
+            default:
+        }
+    }
+
     function apostar() {
         modalidad = $('#modalidad').val();
         switch (modalidad) {
             case "Pleno" : 
                  apuesta = {
                         "modalidad" : $('#modalidad').val(),
-                         numeros: [$('#numero').val()],
-                        "dinero": $('#dinero').val()            
+                        numeros: [$('#sel-menu option:selected').val()],
+                        "fichas": $('#fichas').val()            
                  }
-                 $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + "</td><td>" + apuesta.dinero + "</td></tr>");
+                 $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Semi" : 
                 apuesta = {
                     "modalidad" : $('#modalidad').val(),
-                     numeros: [$('#numero').val(), $('#numero1').val()],
-                    "dinero": $('#dinero').val()            
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val()],
+                    "fichas": $('#fichas').val()            
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.dinero + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
-            case "Calle": case "Cubre":
+            case "Calle":
+                apuesta = {
+                    "modalidad": "Calle",
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                break;
+            case "Cubre":
+                apuesta = {
+                    "modalidad": "Cubre",
+                    numeros: [0, 1, 2, 3],
+                    "fichas": $('#fichas').val()
+                }
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                break;
+            case "Cuadro":
+                apuesta = {
+                    "modalidad": "Cuadro",
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val(), $('#sel-menu3 option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                break;
+            case "Columna":
                 apuesta = {
                     "modalidad": $('#modalidad').val(),
-                    numeros: [$('#numero').val(), $('#numero1').val(), $('#numero2').val()],
-                    "dinero": $('#dinero').val()
+                    numeros: [$('#sel-menu option:selected').val()],
+                    "fichas": $('#fichas').val()
                 }
+                switch ($('#sel-menu option:selected').val()) {
+                    case '46':
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "1° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    case '47':
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "2° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    default:
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "3° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                }
+                break;
+            case "Docena":
+                apuesta = {
+                    "modalidad": $('#modalidad').val(),
+                    numeros: [$('#sel-menu option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                switch ($('#sel-menu option:selected').val()) {
+                    case '41':
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "1° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    case '42':
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "2° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    default:
+                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "3° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                }
+                break;
+            case "Color":
+                apuesta = {
+                    "modalidad": "Chances Simples",
+                    numeros: [$('#sel-menu option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                switch ($('#sel-menu option:selected').val()) {
+                    case '39':
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Rojo" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    default:
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Negro" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                }
+                break;
+            case "Paridad":
+                apuesta = {
+                    "modalidad": "Chances Simples",
+                    numeros: [$('#sel-menu option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                switch ($('#sel-menu option:selected').val()) {
+                    case '37':
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Par" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    default:
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Impar" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                }
+                break;
+            case "1-18/19-36":
+                apuesta = {
+                    "modalidad": "Chances Simples",
+                    numeros: [$('#sel-menu option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                switch ($('#sel-menu option:selected').val()) {
+                    case '44':
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Par" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        break;
+                    default:
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Impar" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                }
+                break;
             default:
-
         }
         
         apuestas.push(apuesta);
@@ -51,13 +226,25 @@
             dataType: "json",
             data: JSON.stringify(datos),
             contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                var jsonData = JSON.stringify(data);
+                var jsonParse = JSON.parse(jsonData);
+                
+                //console.log(jsonParse.Data.gano);
 
+                if (jsonParse.Data.gano == false) {
+                    alert(jsonParse.Data.perdiste);
+                    RULETA_APP2.doTakeBall();
+                } else {
+                    alert(jsonParse.Data.nombreCompleto + " has ganado, salio el numero: " + jsonParse.Data.salio);
+                    RULETA_APP2.doTakeBall();
+                }
+            },
             error: function (error) {
                 alert("fail !!!");
             }
         });
     }
-
     window.RULETA_APP = {};
     window.RULETA_APP.enviarApuestas = EnviarApuestas;
 });

@@ -49,15 +49,37 @@ namespace PresentationLayer.Controllers
                         casilla.Color = c.Ruleta.tablero[num].Color;
                     numeros.Add(casilla);
                 }
-                bet = new Apuesta(new List<Casillero>(numeros), item.dinero, new Modalidad(item.modalidad), c.Jugador);
+                bet = new Apuesta(new List<Casillero>(numeros), item.fichas, new Modalidad(item.modalidad), c.Jugador);
                 c.Ruleta.Apostar(bet);
                 numeros.Clear();
             }
             
             //Actualizamos la DB
             //Si te sirve Marian, guarda en una variable el resultado de c.Pagar() si es mayor a cero, el flaco gano
-            c.Jugador.Guardar(c.Jugador.Id, c.Pagar());
-            return View();
+            int pagar = c.Pagar();
+            c.Jugador.Guardar(c.Jugador.Id, pagar);            
+
+            if (pagar > 0 )
+            {
+                int salio = Elegido;
+                string nombreCompleto = c.Jugador.Nombre + " " + c.Jugador.Apellido;
+
+                var json = Json(new 
+                { 
+                    gano = true,
+                    salio = salio, 
+                    nombreCompleto = nombreCompleto 
+                });
+
+                return Json(json);                
+            }
+            
+            var jason = Json(new {
+                gano = false,
+                perdiste = "Perdiste"
+            });
+
+            return Json(jason);
         }
  
         public ActionResult Jugar() 

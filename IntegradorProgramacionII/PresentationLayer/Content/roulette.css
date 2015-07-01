@@ -26,8 +26,8 @@
 }
 #controls {
 	position: absolute;
-    top: 100px;
-    right: 350px;
+    bottom: 0px;
+    right: 0px;
 }
     #controls a {
         color: white;

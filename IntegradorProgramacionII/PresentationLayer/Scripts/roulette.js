@@ -600,4 +600,6 @@ var rouletteSpinner = {
 	}
 };
 
-window.setTimeout("rouletteSpinner.init();",1000);
+window.setTimeout("rouletteSpinner.init();", 1000);
+window.RULETA_APP2 = {};
+window.RULETA_APP2.rouletteSpinner.doTakeBall() = doTakeBall;
