@@ -1,12 +1,13 @@
 ﻿$(document).ready(function () {
     var apuestas = new Array();
     CrearNumeros(0);
+    
     $('#apostar').click(function () {
         if ($('#fichas').val() === "") {
             alert("Completar la cantidad de fichas");
         } else {
-            if ($('#fichas').val() < 1) {
-                alert("Las fichas no pueden ser negativas");
+            if ($('#fichas').val() < 1 || $('#fichas').val() >= $('.m-fichas').text()) {
+                alert("Las fichas son negativas o superan el valor de fichas que posee");
             } else { 
                 apostar();
                 $("#btn-jugar").removeAttr('disabled');
@@ -208,6 +209,8 @@
             default:
         }
         
+        $('.m-fichas').text($('.m-fichas').text() - apuesta.fichas);
+
         apuestas.push(apuesta);
         $('#formapuesta')[0].reset();
         console.log(apuestas);

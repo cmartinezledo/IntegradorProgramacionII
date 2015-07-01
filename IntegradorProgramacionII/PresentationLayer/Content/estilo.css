@@ -152,7 +152,7 @@ header {
 .m-partidas:before {
 	content: "\e602 ";
 }
-.m-fichas {
+.m-fichas:before {
     content: "\e608";
 }
 #elegido {
