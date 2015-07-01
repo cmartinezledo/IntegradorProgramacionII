@@ -29,6 +29,8 @@
         $('#sel-menu1').remove();
         $('#sel-menu2').remove();
         $('#sel-menu3').remove();
+        $('#sel-menu4').remove();
+        $('#sel-menu5').remove();
         $('#numero1').remove();
         $('#numero2').remove();
         $('#numero3').remove();
@@ -69,6 +71,9 @@
                 break;
             case "Cubre":
                 $('#numeros').append("<span id='numero'>0, 1, 2, 3<span>");
+                break;
+            case "Linea":
+                CrearNumeros(6);
                 break;
             case "Columna":
                 $('#numeros').append("<select id='sel-menu'><option id='numero' value='46'>1° Columna</option><option id='numero' value='47'>2° Columna</option><option id='numero' value='48'>3° Columna</option></select>");
@@ -131,6 +136,14 @@
                     "fichas": $('#fichas').val()
                 }
                 $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                break;
+            case "Linea":
+                apuesta = {
+                    "modalidad": "Linea",
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val(), $('#sel-menu3 option:selected').val(),$('#sel-menu4 option:selected').val(), $('#sel-menu5 option:selected').val()],
+                    "fichas": $('#fichas').val()
+                }
+                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + " - " + apuesta.numeros[4] + " - " + apuesta.numeros[5] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Columna":
                 apuesta = {
@@ -219,6 +232,12 @@
         
     }
 
+    function refrescar(datos) {
+        $('.m-fichas').text(datos.Data.fichas);
+        $('.m-victorias').text(datos.Data.victorias);
+        $('.m-partidas').text(datos.Data.jugadas);
+    };
+
     function EnviarApuestas() {
         var elegido = $('#elegido').val();
         var datos = {
@@ -238,12 +257,12 @@
                 //console.log(jsonParse.Data.gano);
 
                 if (jsonParse.Data.gano == false) {
-                    alert(jsonParse.Data.perdiste);
-                    RULETA_APP2.doTakeBall();
+                    alert("Perdiste");
+                    
                 } else {
-                    alert(jsonParse.Data.nombreCompleto + " has ganado, salio el numero: " + jsonParse.Data.salio);
-                    RULETA_APP2.doTakeBall();
+                    alert(jsonParse.Data.nombre + " has ganado, salio el numero: " + jsonParse.Data.salio);
                 }
+                refrescar(jsonParse);
             },
             error: function (error) {
                 alert("fail !!!");

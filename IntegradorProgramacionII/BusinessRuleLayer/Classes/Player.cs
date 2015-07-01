@@ -99,6 +99,7 @@ namespace IntegradorProgramacionII.Classes
             Players datos = playerDAO.BuscarUsuario(user, pass);
             Player player = new Player();
             player.Id = datos.Id;
+            player.Pass = datos.Pass;
             player.Nombre = datos.Nombre;
             player.Apellido = datos.Apellido;
             player.Efectivo = datos.Efectivo;

@@ -140,9 +140,6 @@ header {
     height: 50px;
     width: 100px;
 }
-.btn {
-    margin-right: 50px;
-}
 .m-dinero:before {
 	content: "\e600 ";
 }

@@ -483,6 +483,7 @@ var ball = {
 		$('#elegido').val(w);
 		rouletteSpinner.doTogglePause();
 		RULETA_APP.enviarApuestas();
+		rouletteSpinner.doTakeBall();
 	},
 	detWinningNumber: function() {
 		// search segments for ballangle
@@ -601,5 +602,3 @@ var rouletteSpinner = {
 };
 
 window.setTimeout("rouletteSpinner.init();", 1000);
-window.RULETA_APP2 = {};
-window.RULETA_APP2.rouletteSpinner.doTakeBall() = doTakeBall;

@@ -54,32 +54,27 @@ namespace PresentationLayer.Controllers
                 numeros.Clear();
             }
             
-            //Actualizamos la DB
-            //Si te sirve Marian, guarda en una variable el resultado de c.Pagar() si es mayor a cero, el flaco gano
             int pagar = c.Pagar();
-            c.Jugador.Guardar(c.Jugador.Id, pagar);            
-
-            if (pagar > 0 )
+            bool gano = false;
+            if (pagar > 0)
+                gano = true;
+            c.Jugador.Guardar(c.Jugador.Id, pagar);
+            c.Jugador = c.Jugador.Buscar(c.Jugador.User, c.Jugador.Pass);
+            Session["game"] = c;
+                  
+            var json = Json(new
             {
-                int salio = Elegido;
-                string nombreCompleto = c.Jugador.Nombre + " " + c.Jugador.Apellido;
-
-                var json = Json(new 
-                { 
-                    gano = true,
-                    salio = salio, 
-                    nombreCompleto = nombreCompleto 
-                });
-
-                return Json(json);                
-            }
-            
-            var jason = Json(new {
-                gano = false,
-                perdiste = "Perdiste"
+                nombre = c.Jugador.Nombre,
+                apellido = c.Jugador.Apellido,
+                fichas = c.Jugador.Fichas,
+                victorias = c.Jugador.Victorias,
+                jugadas = c.Jugador.Jugadas,
+                gano = gano,
+                salio = Elegido,
             });
 
-            return Json(jason);
+            return Json(json);
+
         }
  
         public ActionResult Jugar() 
