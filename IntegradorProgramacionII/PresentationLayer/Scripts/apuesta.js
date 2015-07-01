@@ -3,10 +3,12 @@
     CrearNumeros(0);
     
     $('#apostar').click(function () {
+        console.log($('.m-fichas').text());
+        console.log($('#fichas').val());
         if ($('#fichas').val() === "") {
             alert("Completar la cantidad de fichas");
         } else {
-            if ($('#fichas').val() < 1 || $('#fichas').val() >= $('.m-fichas').text()) {
+            if ($('#fichas').val() < 1 || $('#fichas').val() >= parseInt($('.m-fichas').text())) {
                 alert("Las fichas son negativas o superan el valor de fichas que posee");
             } else { 
                 apostar();
@@ -34,7 +36,7 @@
     function CrearNumeros(num) {
         num = num;
         $('#numeros').append("<select id='sel-menu'>");
-        for (var i = 1; i < 37; i++) {
+        for (var i = 0; i < 37; i++) {
             $('#sel-menu').append("<option id='numero' value" + i + ">" + i + "</option>");
         }
         $('#numeros').append("</select>");
@@ -42,7 +44,7 @@
             for (var k = 1; k < num; k++) {
                 $('#numeros').append("<select id='sel-menu" + k + "'>");
             
-            for (var j = 1; j < 37; j++) {
+            for (var j = 0; j < 37; j++) {
                 $("#sel-menu"+k+"").append("<option id='numero"+k+"' value" + j + ">" + j + "</option>");
             }
             }
