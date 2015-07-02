@@ -120,13 +120,15 @@ header {
         margin-top: -225px;
     }
 #tablero {
-    background: rgba(255,255,255,0.7);
-    background-size: 100%;
-    border-radius: 25px;
+    background: rgba(0 ,0 ,0 ,.8);
     margin: auto;
-    margin-top: 50px;
-    padding: 20px;
-    width: 80%;
+    padding: 50px;
+    position: absolute;
+    top: 0px;
+    padding-top: 350px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 .mini-avatar {
     width: 30px;
@@ -202,3 +204,79 @@ input[type="number"] {
     #comprar input[type="number"] {
         color: black;
     }
+#perdiste, #ganaste {
+    text-align: center;
+    padding: 150px;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+#perdiste {
+    background: blue;     
+}
+#ganaste {
+    background: red;
+}
+#premio {
+    border-radius: 3000px;
+    background: yellow;
+    text-align: center;
+    padding: 50px;
+    color: #2e2e2e;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    z-index: 3;
+    height: 50%;
+    width: 50%;
+}
+    #premio h2 {
+        margin-bottom: 60px;
+        font-size: 72px;
+    }
+    #premio h3 {
+        font-size: 50px;
+        margin-bottom: 30px;
+    }
+.boton {
+    background: #3291d1;
+    color: #fff;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+#premio-cerrar {
+    font-size: 30px;
+    height: 100px;
+    width: 250px;
+    position: absolute;
+    margin-left: -125px;
+    bottom: 40px;
+}
+#premio-cerrar:hover {
+    border-radius: 20px;
+    transform: scale(1.4);
+
+}
+#avatar-premio {
+    border-radius: 50%;
+    background: url('images/fondo-iris.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 30px;
+    color: white;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    margin-left: -250px;
+    z-index: 3;
+    height: 500px;
+    width: 500px;
+}

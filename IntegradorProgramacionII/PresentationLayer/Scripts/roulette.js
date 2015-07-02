@@ -155,7 +155,7 @@ var roulette = {
 			var trot = a3 * 180 / Math.PI - 90;
 			
 			paper.text(tx, ty, number).attr({
-				font: '100 7.5px "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif',
+				font: '100 7.5px "Ubuntu", Helvetica, "Arial Unicode MS", Arial, sans-serif',
 				fill: "#fff",
 				rotation: trot
 				});
@@ -501,7 +501,8 @@ var ball = {
 				return seg.number;
 			}
 		}
-		return -1;
+		return 7;
+		console.log("era 00");
 	}
 }
 
@@ -597,9 +598,9 @@ var rouletteSpinner = {
 				ball.sa -= 360.0;
 			}
 		}
+		window.RULETA_APP2 = {};
+		window.RULETA_APP2.levantar = rouletteSpinner.doTakeBall;
 	}
 };
 
 window.setTimeout("rouletteSpinner.init();", 1000);
-window.RULETA_APP2 = {};
-window.RULETA_APP2.levantar = rouletteSpinner.doTakeBall;

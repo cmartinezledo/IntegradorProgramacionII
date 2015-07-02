@@ -5,8 +5,8 @@
 <div id="tablero">
     <div id="rouletteTable">
         <div id="rouletteWheel"></div>
-        <div id="ballWheel"></div>
     </div>
+    <div id="ballWheel"></div>
 </div>
 <script src="~/Scripts/raphael.js"></script>
 <script src="~/Scripts/roulette.js"></script>
@@ -16,3 +16,21 @@
             rouletteSpinner.doRollBall();
         });
 </script>
+<div id="perdiste">
+    <div id="avatar-premio">
+        <img src="~/Content/images/avatares/@(Model.avatar).png" alt="Alternate Text" />
+    </div>
+    <div id="premio">
+        <h2>Has Perdido!!</h2>
+        <button id="premio-cerrar" class="boton">Aceptar</button>
+    </div>
+</div>
+<div id="ganaste">
+    <div id="avatar-premio">
+        <img src="~/Content/images/avatares/@(Model.avatar).png" alt="Alternate Text" />
+    </div>
+    <div id="premio">
+        <h2>Has Ganado!!</h2>
+        <button id="premio-cerrar1" class="boton">Aceptar</button>
+    </div>
+</div>

@@ -144,8 +144,10 @@
     <Content Include="Content\images\avatares\7.png" />
     <Content Include="Content\images\avatares\8.png" />
     <Content Include="Content\images\avatares\9.png" />
+    <Content Include="Content\images\fondo-iris.png" />
     <Content Include="Content\images\fondo.jpg" />
     <Content Include="Content\images\pano.png" />
+    <Content Include="Content\images\panotablero.jpg" />
     <Content Include="Content\images\roulette.gif" />
     <Content Include="Content\raphael.css" />
     <Content Include="Content\roulette.css" />

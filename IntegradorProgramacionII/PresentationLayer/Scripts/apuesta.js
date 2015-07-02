@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    var apuestas = new Array();
-    CrearNumeros(0);
+        var apuestas = new Array();
+        CrearNumeros(0);
     $('#apostar').click(function () {
         console.log($('.m-fichas').text());
         console.log($('#fichas').val());
@@ -11,7 +11,6 @@
                 alert("Las fichas son negativas o superan el valor de fichas que posee");
             } else { 
                 apostar();
-                RULETA_APP2.levantar();
                 $("#btn-jugar").removeAttr('disabled');
                 borrar();
                 CrearNumeros(0);
@@ -24,6 +23,18 @@
     });
     $('#btn-comprar').click(function() {
         $('#comprar').show();
+    });
+    $('#premio-cerrar').click(function() {
+        $('#perdiste').hide();
+        $('#ganaste').hide();
+        $('.added').remove();
+        borrarApuestas();
+    });
+    $('#premio-cerrar1').click(function () {
+        $('#perdiste').hide();
+        $('#ganaste').hide();
+        $('.added').remove();
+        borrarApuestas();
     });
     $('#btncomprar').click(function () {
         if (($('#fichas-comprar').val() <= parseInt($('.m-dinero').text()) && $('#fichas-comprar').val() > 0)) {
@@ -46,7 +57,13 @@
         $('#numero3').remove();
     }
     function borrarApuestas() {
-        $('#apuestas-realizadas').remove();
+        $('#apuestas-realizadas .add').remove();
+        $('#btn-jugar').attr('disabled');
+        borrar();
+        apuestas = [];
+        console.log(apuestas);
+        CrearNumeros(0);
+        RULETA_APP2.levantar();
     }
     function CrearNumeros(num) {
         num = num;
@@ -66,7 +83,6 @@
             $('#numeros').append("</select>");
         }
     }
-    
     function switchapuestas() {
         modalidad = $('#modalidad').val();
         switch (modalidad) {
@@ -116,7 +132,7 @@
                         numeros: [$('#sel-menu option:selected').val()],
                         "fichas": $('#fichas').val()            
                  }
-                 $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                 $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Semi" : 
                 apuesta = {
@@ -124,15 +140,15 @@
                     numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val()],
                     "fichas": $('#fichas').val()            
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Calle":
                 apuesta = {
                     "modalidad": "Calle",
-                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val()],
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val()],
                     "fichas": $('#fichas').val()
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Cubre":
                 apuesta = {
@@ -140,7 +156,7 @@
                     numeros: [0, 1, 2, 3],
                     "fichas": $('#fichas').val()
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Cuadro":
                 apuesta = {
@@ -148,7 +164,7 @@
                     numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val(), $('#sel-menu3 option:selected').val()],
                     "fichas": $('#fichas').val()
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Linea":
                 apuesta = {
@@ -156,7 +172,7 @@
                     numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val(), $('#sel-menu3 option:selected').val(),$('#sel-menu4 option:selected').val(), $('#sel-menu5 option:selected').val()],
                     "fichas": $('#fichas').val()
                 }
-                $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + " - " + apuesta.numeros[4] + " - " + apuesta.numeros[5] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + " - " + apuesta.numeros[3] + " - " + apuesta.numeros[4] + " - " + apuesta.numeros[5] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Columna":
                 apuesta = {
@@ -166,13 +182,13 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '46':
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "1° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "1° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     case '47':
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "2° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "2° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "3° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "3° Columna" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             case "Docena":
@@ -183,13 +199,13 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '41':
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "1° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "1° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     case '42':
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "2° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "2° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + apuesta.modalidad + "</td><td>" + "3° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + "3° Docena" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             case "Color":
@@ -200,10 +216,10 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '39':
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Rojo" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "Rojo" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Negro" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "Negro" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             case "Paridad":
@@ -214,10 +230,10 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '37':
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Par" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "Par" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Impar" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "Impar" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             case "1-18/19-36":
@@ -228,26 +244,17 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '44':
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "1-18" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "1-18" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "19-36" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr class='add'><td>" + $('#modalidad').val() + "</td><td>" + "19-36" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             default:
         }
-        
-        console.log("2 fichas:" + $('#m-fichas').text());
-        console.log("m fichas:" + parseInt($('#m-fichas').text()));
-        console.log("Apuesta fichas:" + apuesta.fichas);
 
         $('#m-fichas').text(parseInt($('#m-fichas').text()) - apuesta.fichas);
-        
-
         apuestas.push(apuesta);
-        $('#formapuesta')[0].reset();
-        console.log(apuestas);
-        
     }
 
     function refrescar(datos) {
@@ -280,10 +287,13 @@
                 //console.log(jsonParse.Data.gano);
 
                 if (jsonParse.Data.gano == false) {
-                    alert("Perdiste");
-
+                    
+                    $('#perdiste #premio').append("<h3 class='added'>Salio el numero " + jsonParse.Data.salio + "</h3>");
+                    $('#perdiste').show(1000);
                 } else {
-                    alert(jsonParse.Data.nombre + " has ganado, salio el numero: " + jsonParse.Data.salio);
+
+                    $('#ganaste #premio').append("<h3 class='added'>Salio el numero " + jsonParse.Data.salio + "</h3>");
+                    $('#ganaste').show(1000);
                 }
                 refrescar(jsonParse);
             },
@@ -291,9 +301,6 @@
                 alert("Se perdio la conexion!!!");
             }
         });
-        borrarApuestas();
-        $('#btn-jugar').attr('disabled');
-        borrar();
     }
         function Comprar() {
             var datos = {

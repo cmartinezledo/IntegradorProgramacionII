@@ -1,24 +1,26 @@
 #rouletteTable {
     background: url(images/pano.png);
     background-repeat: no-repeat;
-	height: 442px;
+    background-size: 800px;
+	height: 380px;
 	padding: 10px;
     position: relative;
-	width: 100%;
+    margin: auto;
+	width: 800px;
 }
 #rouletteWheel {
 	float: left;
-    top: 90px;
-    left: 55px;
+    top: 60px;
+    left: 10px;
 	height: 300px;
 	position: absolute;
 	width: 300px;
+    z-index: auto;
 }
 #ballWheel {
-	border: 2px solid #fff;
     position: absolute;
-    right: 30px;
-    top: 70px;
+    right: 250px;
+    top: 400px;
  	width: auto;
 }
 .clearfix {

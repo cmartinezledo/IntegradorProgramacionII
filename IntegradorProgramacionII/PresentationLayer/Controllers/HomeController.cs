@@ -34,8 +34,8 @@ namespace PresentationLayer.Controllers
         public ActionResult RecibirApuesta(int Elegido, ApuestaViewModel[] apostado)
         {
             Croupier c = Session["game"] as Croupier;
-            //c.Elegido = Elegido;
-            c.Elegido = 0;
+            c.Elegido = Elegido;
+            
             List<Casillero> numeros = new List<Casillero>();
             Casillero casilla;
             Apuesta bet;
@@ -71,6 +71,7 @@ namespace PresentationLayer.Controllers
                 jugadas = c.Jugador.Jugadas,
                 gano = gano,
                 salio = Elegido,
+                color = c.Ruleta.tablero[Elegido].Color,
             });
             return Json(json);
         }
