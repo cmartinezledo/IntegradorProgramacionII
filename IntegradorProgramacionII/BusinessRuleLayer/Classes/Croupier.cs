@@ -128,6 +128,7 @@ namespace IntegradorProgramacionII.Classes
                 else
                     gano = false;
             }
+            ruleta.apuestas.Clear();
             return monto - perdida;
         }
     }

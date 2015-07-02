@@ -1,33 +1,37 @@
 ﻿$(document).ready(function () {
     var apuestas = new Array();
     CrearNumeros(0);
-    
     $('#apostar').click(function () {
         console.log($('.m-fichas').text());
         console.log($('#fichas').val());
         if ($('#fichas').val() === "") {
             alert("Completar la cantidad de fichas");
         } else {
-            if ($('#fichas').val() < 1 || $('#fichas').val() > parseInt($('.m-fichas').text())) {
+            if ($('#fichas').val() < 1 || $('#fichas').val() > parseInt($('#m-fichas').text())) {
                 alert("Las fichas son negativas o superan el valor de fichas que posee");
             } else { 
                 apostar();
+                RULETA_APP2.levantar();
                 $("#btn-jugar").removeAttr('disabled');
                 borrar();
                 CrearNumeros(0);
             }
         }
     });
-    $('#modalidad').change(function () {
+        $('#modalidad').change(function () {
         borrar();
         switchapuestas();
     });
     $('#btn-comprar').click(function() {
         $('#comprar').show();
     });
-    $('#btncompar').click(function () {
-        Comprar();
-        $('#comprar').hide();
+    $('#btncomprar').click(function () {
+        if (($('#fichas-comprar').val() <= parseInt($('.m-dinero').text()) && $('#fichas-comprar').val() > 0)) {
+            Comprar();
+            $('#comprar').hide();
+        } else {
+            alert("No te alcanza la plata!");
+        }
     });
     function borrar() {
         $('#numeros span').remove();
@@ -40,6 +44,9 @@
         $('#numero1').remove();
         $('#numero2').remove();
         $('#numero3').remove();
+    }
+    function borrarApuestas() {
+        $('#apuestas-realizadas').remove();
     }
     function CrearNumeros(num) {
         num = num;
@@ -221,16 +228,21 @@
                 }
                 switch ($('#sel-menu option:selected').val()) {
                     case '44':
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Par" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "1-18" + "</td><td>" + apuesta.fichas + "</td></tr>");
                         break;
                     default:
-                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "Impar" + "</td><td>" + apuesta.fichas + "</td></tr>");
+                        $('#apuestas-realizadas').append("<tr><td>" + $('#modalidad').val() + "</td><td>" + "19-36" + "</td><td>" + apuesta.fichas + "</td></tr>");
                 }
                 break;
             default:
         }
         
-        $('.m-fichas').text($('.m-fichas').text() - apuesta.fichas);
+        console.log("2 fichas:" + $('#m-fichas').text());
+        console.log("m fichas:" + parseInt($('#m-fichas').text()));
+        console.log("Apuesta fichas:" + apuesta.fichas);
+
+        $('#m-fichas').text(parseInt($('#m-fichas').text()) - apuesta.fichas);
+        
 
         apuestas.push(apuesta);
         $('#formapuesta')[0].reset();
@@ -239,13 +251,13 @@
     }
 
     function refrescar(datos) {
-        $('.m-fichas').text(datos.Data.fichas);
+        $('#m-fichas').text(datos.Data.fichas);
         $('.m-victorias').text(datos.Data.victorias);
         $('.m-partidas').text(datos.Data.jugadas);
     };
 
     function refrescarFichas(datos) {
-        $('.m-fichas').text(datos.Data.fichas);
+        $('#m-fichas').text(datos.Data.fichas);
         $('.m-dinero').text(datos.Data.dinero);
     };
 
@@ -279,6 +291,9 @@
                 alert("Se perdio la conexion!!!");
             }
         });
+        borrarApuestas();
+        $('#btn-jugar').attr('disabled');
+        borrar();
     }
         function Comprar() {
             var datos = {
