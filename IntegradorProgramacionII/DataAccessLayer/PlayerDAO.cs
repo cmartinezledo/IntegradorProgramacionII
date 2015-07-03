@@ -42,8 +42,6 @@ namespace DataAccessLayer
                 original.Efectivo -= fichas;
                 c.SaveChanges();
             }
-            else
-                throw new NullReferenceException("Jugador no encontrado");
         }
 
         public void Guardar(int id, int fichas, Boolean victoria) 
@@ -59,8 +57,6 @@ namespace DataAccessLayer
                     original.Victorias++;
                 c.SaveChanges();
             }
-            else
-                throw new NullReferenceException("Jugador no encontrado");
         }
 
         public Players BuscarUsuario(string user, string pass)

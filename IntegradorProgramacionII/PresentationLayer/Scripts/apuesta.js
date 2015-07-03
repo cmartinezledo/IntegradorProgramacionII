@@ -8,7 +8,7 @@
             alert("Completar la cantidad de fichas");
         } else {
             if ($('#fichas').val() < 1 || $('#fichas').val() > parseInt($('#m-fichas').text())) {
-                alert("Las fichas son negativas o superan el valor de fichas que posee");
+                alert("Su apuesta supera el valor de fichas que posee");
             } else { 
                 apostar();
                 $("#btn-jugar").removeAttr('disabled');
@@ -37,7 +37,7 @@
         borrarApuestas();
     });
     $('#btncomprar').click(function () {
-        if (($('#fichas-comprar').val() <= parseInt($('.m-dinero').text()) && $('#fichas-comprar').val() > 0)) {
+        if ($('#fichas-comprar').val() <= parseInt($('.m-dinero').text()) && $('#fichas-comprar').val() >= 0 && $('#fichas-comprar').val() != "") {
             Comprar();
             $('#comprar').hide();
         } else {
@@ -265,7 +265,7 @@
 
     function refrescarFichas(datos) {
         $('#m-fichas').text(datos.Data.fichas);
-        $('.m-dinero').text(datos.Data.dinero);
+        $('#money').text(datos.Data.dinero);
     };
 
     function EnviarApuestas() {
@@ -283,8 +283,6 @@
             success: function (data) {
                 var jsonData = JSON.stringify(data);
                 var jsonParse = JSON.parse(jsonData);
-
-                //console.log(jsonParse.Data.gano);
 
                 if (jsonParse.Data.gano == false) {
                     
