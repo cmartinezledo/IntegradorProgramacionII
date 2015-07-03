@@ -93,7 +93,7 @@
                 CrearNumeros(2);                
                 break;
             case "Calle":
-                CrearNumeros(2);
+                CrearNumeros(3);
                 break;
             case "Cuadro":
                 CrearNumeros(4);
@@ -145,10 +145,10 @@
             case "Calle":
                 apuesta = {
                     "modalidad": "Calle",
-                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val()],
+                    numeros: [$('#sel-menu option:selected').val(), $('#sel-menu1 option:selected').val(), $('#sel-menu2 option:selected').val()],
                     "fichas": $('#fichas').val()
                 }
-                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + "</td><td>" + apuesta.fichas + "</td></tr>");
+                $('#apuestas-realizadas').append("<tr class='add'><td>" + apuesta.modalidad + "</td><td>" + apuesta.numeros[0] + " - " + apuesta.numeros[1] + " - " + apuesta.numeros[2] + "</td><td>" + apuesta.fichas + "</td></tr>");
                 break;
             case "Cubre":
                 apuesta = {
